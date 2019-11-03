@@ -1,24 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
+import SavingsCard from './components/SavingsCard';
+import ShiftCard from './components/ShiftCard';
+import AddButton from './components/AddButton'
 import './App.css';
+import AddNew from './components/AddNew';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className="row mt-5">
+        <div className="col">
+          <AddNew title="Savings Goal"/>
+          <SavingsCard />
+          <ShiftCard />
+          <SavingsCard />
+        </div>
+      </div>
     </div>
   );
 }

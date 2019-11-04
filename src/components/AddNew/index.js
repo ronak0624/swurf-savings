@@ -9,15 +9,24 @@ function NewSavings(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const handleSubmit = event => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
+  // handleInputChange = event => {
+  //   const name =event.target.name;
+  //   const value = event.target.value;
+  //   this.setState({
+  //     [name]:value
+  //   })
+  // }
 
-    setValidated(true);
-  };
+  // handleSubmit = event => {
+  //   handleClose();
+  //   const form = event.currentTarget;
+  //   if (form.checkValidity() === false) {
+  //     event.preventDefault();
+  //     event.stopPropagation();
+  //   }
+
+  //   setValidated(true);
+  // };
 
   return (
     <div>
@@ -44,13 +53,13 @@ function NewSavings(props) {
               </Form.Control>
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlInput1">
-              <Form.Label>Goal</Form.Label>
+              <Form.Label>Pricel</Form.Label>
               <Form.Control type="number" placeholder="$400" />
             </Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary">
             Submit
           </Button>
         </Modal.Footer>

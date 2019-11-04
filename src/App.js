@@ -10,7 +10,8 @@ function App() {
     <div className="container">
       <div className="row mt-5">
         <div className="col">
-          <AddNew title="Savings Goal"/>
+          <AddNew title="Savings Goal" type="savings" />
+          <AddNew title="Shift Goal" type="shift" />
           <SavingsCard />
           <ShiftCard />
           <SavingsCard />

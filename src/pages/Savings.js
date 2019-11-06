@@ -1,11 +1,11 @@
 import React from 'react';
-import AddNew from '../components/AddNew';
+import NewSavings from '../components/NewSavings'
 
 export default function Savings() {
-
+    
     return (
         <div>
-            <AddNew type="savings"/>
+            <NewSavings />
         </div>
     )
 }

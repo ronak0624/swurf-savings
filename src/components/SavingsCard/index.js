@@ -24,5 +24,5 @@ function SavingsCard (props) {
       );
     }
     
-    export default SavingsCard;
-}
+export default SavingsCard;
+

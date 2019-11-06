@@ -4,7 +4,7 @@ import './style.css'
 
 export default function ShiftCard(props) {
     return (
-        <Card className="mb-5 card-shift" bsClass="card-shift">
+        <Card className="mb-5 card-shift mx-auto" bsClass="card-shift">
             <Card.Body>
                 <Card.Title>{props.shiftEnd - props.shiftStart} hours</Card.Title>
                 <Card.Title>${props.earnings} earned</Card.Title>

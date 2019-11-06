@@ -58,7 +58,7 @@ export default function Shifts() {
     return(
         <Container>
             <NewShift />
-            <ShiftList/>
+            <ShiftList />
         </Container>
     )
 }

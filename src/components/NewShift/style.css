@@ -1,0 +1,11 @@
+.add-button{
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: none;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+}
+.fa-plus{
+    height: 50%;
+}

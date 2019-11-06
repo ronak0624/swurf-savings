@@ -15,23 +15,12 @@ export default function NewShift(props) {
           <button onClick={handleShow} type="button" className="btn btn-outline-primary mx-auto w-50">+</button>
         </div>
   
-        <Modal show={show} onHide={handleClose}>
+        <Modal show={show} onHide={handleClose} centered>
           <Modal.Header closeButton>
-            <Modal.Title>Add new {props.title}</Modal.Title>
+            <Modal.Title>New Shift</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form>
-              <Form.Group controlId="exampleForm.ControlSelect1">
-                <Form.Label>Company</Form.Label>
-                <Form.Control as="select">
-                  <option>DoorDash</option>
-                  <option>Uber</option>
-                  <option>Lyft</option>
-                  <option>Postmates</option>
-                  <option>Grubhub</option>
-                  <option>Postmates</option>
-                </Form.Control>
-              </Form.Group>
               <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>Income ($)</Form.Label>
                 <Form.Control type="number" placeholder="97.54" />

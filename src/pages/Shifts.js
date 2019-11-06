@@ -49,7 +49,7 @@ var mockData = [
 function ShiftList(){
     return (
         mockData.map((shift) => (
-            <ShiftCard shiftEnd={shift.shiftEnd} shiftStart={shift.shiftStart} earnings={shift.earnings} className="mb-5"/>
+            <ShiftCard shiftEnd={shift.shiftEnd} shiftStart={shift.shiftStart} earnings={shift.earnings}/>
         ))
     )
 }

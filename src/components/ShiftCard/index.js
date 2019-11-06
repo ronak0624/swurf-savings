@@ -1,15 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react';
+import Card from 'react-bootstrap/Card'
 
-export default class index extends Component {
-    render() {
-        return (
-            <div className="card mb-5">
-                <div className="card-header">Shift</div>
-                <div className="card-body">
-                    <div className="card-title">IT</div>
-                    <p className="card-text">SIDEWAYS</p>
-                </div>
-            </div>
-        )
-    }
+export default function ShiftCard(props) {
+    return (
+        <Card className={props.className}>
+            <Card.Header></Card.Header>
+            <Card.Body>
+                <Card.Title>Uber</Card.Title>
+                <Card.Text>
+                    {props.shiftEnd - props.shiftStart} hours
+                    ${props.earnings} earned
+                </Card.Text>
+            </Card.Body>
+        </Card>
+    )
 }

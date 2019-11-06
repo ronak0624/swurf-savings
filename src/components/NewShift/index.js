@@ -3,12 +3,38 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import './style.css'
+import { validate } from '@babel/types';
 
 export default function NewShift(props) {
+  const component = new React.Component(props);
+
+  component.state = {
+    earnings: "",
+    shiftStart: "",
+    shiftEnd: ""
+  };
+
+  const [validated, setValidated] = useState(false);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  function handleChange(event) {
+    component.setState({[event.target.name]: event.target.value});
+  }
+
+  const handleSubmit = event => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    setValidated(true);
+    if(validated === true){
+      handleClose();
+    }
+  };
 
   return (
     <div>
@@ -21,41 +47,32 @@ export default function NewShift(props) {
           <Modal.Title>New Shift</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
-            <Form.Group controlId="exampleForm.ControlInput1">
-              <Form.Label>Income ($)</Form.Label>
-              <Form.Control type="number" placeholder="97.54" />
+          <Form noValidate validated={validated} onSubmit={handleSubmit}>
+            <Form.Group controlId="validationCustom03">
+              <Form.Label>Earnings ($)</Form.Label>
+              <Form.Control onChange={handleChange} value={component.state.earnings} type="text" placeholder="$55.45" required />
+              <Form.Control.Feedback type="invalid">
+                Please provide a valid earnings number
+          </Form.Control.Feedback>
             </Form.Group>
-            <Form.Group controlId="exampleForm.ControlSelect1">
-              <Form.Label>Hours worked</Form.Label>
-              <Form.Control as="select">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-                <option>11</option>
-                <option>12</option>
-                <option>13</option>
-                <option>14</option>
-                <option>15</option>
-                <option>16</option>
-                <option>17</option>
-                <option>18</option>
-                <option>19</option>
-                <option>20</option>
-                <option>21</option>
-              </Form.Control>
+            <Form.Group controlId="validationCustom04">
+              <Form.Label>Shift Start</Form.Label>
+              <Form.Control onChange={handleChange} value={component.state.shiftStart} type="text" placeholder="4:00" required />
+              <Form.Control.Feedback type="invalid">
+                Please provide a valid time.
+          </Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group controlId="validationCustom05">
+              <Form.Label>Shirt End</Form.Label>
+              <Form.Control onChange={handleChange} value={component.state.shiftEnd} type="text" placeholder="8:00" required />
+              <Form.Control.Feedback type="invalid">
+                Please provide a valid time.
+          </Form.Control.Feedback>
             </Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={handleSubmit}>
             Submit
             </Button>
         </Modal.Footer>

@@ -1,6 +1,21 @@
 .card{
     max-width: 40vw;
+    border: none;
+    box-shadow: 0 3px 40px -15px rgba(0,0,0,0.2);
 }
 .card-title{
     text-align: center;
+}
+.progress{
+    height: 2rem;
+    background-color: #87CC92;
+    border-radius: 0.8rem;
+    margin: 0px 2rem;
+}
+.progress-bar{
+    background-color: #366E42;
+}
+.savings-info {
+    font-size: 1.3rem;
+    font-weight: lighter;
 }

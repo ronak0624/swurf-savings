@@ -1,20 +1,9 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Login from "../../pages/Login";
-import Savings from "../../pages/Savings";
-import Shifts from "../../pages/Shifts";
+import { Link } from "react-router-dom";
+
 
 function Nav() {
   return (
-    <div>
-      <Router>
-        <div>
-            <Switch>
-                <Route path="/" exact component={Login} />
-                <Route path="/savings" exact component={Savings} />
-                <Route path="/shifts" component={Shifts} />
-            </Switch>
-        </div>
         <nav className="navbar navbar-expand-lg navbar-light bg-dark">
           <Link className="navbar-brand text-light" to="/">
             Swurf Savings
@@ -46,8 +35,6 @@ function Nav() {
           </div>
           <span class="navbar-text text-light">Logged in as: username</span>
         </nav>
-      </Router>
-    </div>
   );
 }
 

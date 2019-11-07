@@ -2,6 +2,7 @@ import React from 'react';
 import Login from '../../pages/Login'
 import Savings from '../../pages/Savings'
 import Shifts from '../../pages/Shifts'
+import './style.css'
 import {
     BrowserRouter as Router,
     Switch,
@@ -14,7 +15,7 @@ export default function Navigation() {
         <div>
             <Router>
                 <div>
-                    <ul>
+                    <ul className="navigation">
                         <li>
                             <Link to="/">Home</Link>
                         </li>
@@ -25,7 +26,6 @@ export default function Navigation() {
                             <Link to="/shifts">Shifts</Link>
                         </li>
                     </ul>
-                    <hr />
                     <Switch>
                         <Route exact path="/">
                             <Login />

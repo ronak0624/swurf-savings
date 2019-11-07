@@ -6,22 +6,25 @@ import './style.css'
 import { validate } from '@babel/types';
 
 export default function NewShift(props) {
-  const component = new React.Component(props);
-
-  component.state = {
-    earnings: "",
-    shiftStart: "",
-    shiftEnd: ""
-  };
 
   const [validated, setValidated] = useState(false);
   const [show, setShow] = useState(false);
 
+  const [state, setState] = useState({
+    earnings : "",
+    shiftStart : "",
+    shiftEnd : ""
+  })
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  function handleChange(event) {
-    component.setState({[event.target.name]: event.target.value});
+  const handleChange = e => {
+    const {name, value} = e.target
+    setState(prevState => ({
+      ...prevState,
+      [name]: value
+    }))
   }
 
   const handleSubmit = event => {
@@ -34,6 +37,7 @@ export default function NewShift(props) {
     if(validated === true){
       handleClose();
     }
+    console.log(state);
   };
 
   return (
@@ -50,24 +54,24 @@ export default function NewShift(props) {
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Form.Group controlId="validationCustom03">
               <Form.Label>Earnings ($)</Form.Label>
-              <Form.Control onChange={handleChange} value={component.state.earnings} type="text" placeholder="$55.45" required />
+              <Form.Control name="earnings" onChange={handleChange} value={state.earnings} type="text" placeholder="$55.45" required />
               <Form.Control.Feedback type="invalid">
                 Please provide a valid earnings number
-          </Form.Control.Feedback>
+              </Form.Control.Feedback>
             </Form.Group>
             <Form.Group controlId="validationCustom04">
               <Form.Label>Shift Start</Form.Label>
-              <Form.Control onChange={handleChange} value={component.state.shiftStart} type="text" placeholder="4:00" required />
+              <Form.Control name="shiftStart" onChange={handleChange} value={state.shiftStart} type="text" placeholder="4:00" required />
               <Form.Control.Feedback type="invalid">
                 Please provide a valid time.
-          </Form.Control.Feedback>
+              </Form.Control.Feedback>
             </Form.Group>
             <Form.Group controlId="validationCustom05">
-              <Form.Label>Shirt End</Form.Label>
-              <Form.Control onChange={handleChange} value={component.state.shiftEnd} type="text" placeholder="8:00" required />
+              <Form.Label>Shift End</Form.Label>
+              <Form.Control name="shiftEnd" onChange={handleChange} value={state.shiftEnd} type="text" placeholder="8:00" required />
               <Form.Control.Feedback type="invalid">
                 Please provide a valid time.
-          </Form.Control.Feedback>
+              </Form.Control.Feedback>
             </Form.Group>
           </Form>
         </Modal.Body>

@@ -5,3 +5,7 @@
     left: 0;
     z-index: -5;
 }
+.sign-up{
+    margin-top: 40vh;
+    transform: translateY(-50%);
+}

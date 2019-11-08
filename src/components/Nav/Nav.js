@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import './style.css';
 
 
-function Nav() {
+function Nav(props) {
   return (
         <nav className="navbar navbar-expand-lg navbar-light bg-dark">
           <Link className="navbar-brand text-light" to="/">
@@ -33,7 +34,7 @@ function Nav() {
               </li>
             </ul>
           </div>
-          <span class="navbar-text text-light">Logged in as: username</span>
+          <span class="navbar-text text-light">@{props.username}</span>
         </nav>
   );
 }

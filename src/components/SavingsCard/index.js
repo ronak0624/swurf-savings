@@ -16,19 +16,28 @@ function SavingsCard(props) {
   return (
     <Card className="mb-5 mx-auto">
       <Card.Body>
-        <Card.Text className="text-center">I need this</Card.Text>
+        <Card.Text className="text-center text-muted display-5 savings-title">I need this</Card.Text>
         <Card.Title className="mb-4">{props.title}</Card.Title>
         <Card.Text>
           {progressInstance}
         </Card.Text>
         <Card.Text className="text-center">
-          <Row className="justify-content-md-center savings-info">
+          <Row className="justify-content-md-center">
             <Col xs lg="2">
-              ${props.priceRemaining}
+              <Row>
+                <Col className="savings-title">Saved</Col>
+              </Row>
+              <Row>
+                <Col className="price-title">${props.priceRemaining}</Col>
+              </Row>
             </Col>
-            <Col className="text-muted" md="auto">|</Col>
             <Col xs lg="2">
-            ${props.price}
+              <Row>
+                <Col className="savings-title">Left</Col>
+              </Row>
+              <Row>
+                <Col className="price-title">${props.price}</Col>
+              </Row>
             </Col>
           </Row>
         </Card.Text>

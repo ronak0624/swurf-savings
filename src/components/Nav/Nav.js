@@ -5,7 +5,7 @@ import './style.css';
 
 function Nav(props) {
   return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-dark">
+        <nav className="navbar navbar-expand-lg navbar-light bg-dark position-fixed w-100">
           <Link className="navbar-brand text-light" to="/">
             Swurf Savings
           </Link>

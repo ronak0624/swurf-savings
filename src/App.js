@@ -40,7 +40,7 @@ function App() {
                   <circle cx="24" cy="24" r="20.5" fill="none" />
                 </g>
               </g>
-              <path id="Path_5" data-name="Path 5" d="M2075.282,907.566s-289.8-61.695-72.64-264.292-60.67-483.848-60.67-483.848h659.747v748.14Z" transform="translate(2601.645 1250.992) rotate(-180)" fill="#959494" />
+              <path id="Path_5" data-name="Path 5" d="M2075.282,907.566s-289.8-61.695-72.64-264.292-60.67-483.848-60.67-483.848h659.747v748.14Z" transform="translate(2601.645 1250.992) rotate(-180)" fill="#9FC7A8" />
               <path id="Path_8" data-name="Path 8" d="M1210,240.23c153.479,150.755,316.832,103.48,414.557,104.336,292.493-3.379,432.673-442.931,184.058-442.291s-598.615,0-598.615,0S1056.521,89.475,1210,240.23Z" transform="translate(97.652 1978.746) rotate(-90)" fill="#5c9969" />
               <path id="Path_4" data-name="Path 4" d="M1210,278.814s70.825,240.844,355.5,147.713c311.21-108.053,491.732-524.977,243.117-524.252s-598.615,0-598.615,0Z" transform="translate(-1210 97)" fill="#366e42" />
             </g>
@@ -84,11 +84,13 @@ function App() {
         </svg> */}
       </div>
       <Nav username="ronak" />
-      <Switch>
-        <Route path="/" exact component={Login} />
-        <Route path="/savings" exact component={Savings} />
-        <Route path="/shifts" component={Shifts} />
-      </Switch>
+      <div>
+        <Switch>
+          <Route path="/" exact component={Login} />
+          <Route path="/savings" exact component={Savings} />
+          <Route path="/shifts" component={Shifts} />
+        </Switch>
+      </div>
     </Router >
   );
 }

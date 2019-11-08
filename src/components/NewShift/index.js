@@ -76,7 +76,7 @@ export default function NewShift(props) {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleSubmit}>
+          <Button className="submit-btn" variant="primary" onClick={handleSubmit}>
             Submit
             </Button>
         </Modal.Footer>

@@ -22,9 +22,9 @@
 }
 
 .background-svg{
-  height: 100vh;
   position: fixed;
-  bottom: -10px;
+  bottom: 0px;
+  transform: scale(1.1);
   left: 0;
   z-index: -5;
 }

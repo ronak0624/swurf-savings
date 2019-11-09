@@ -26,3 +26,8 @@
     font-weight: bold;
     font-size: 1.2rem;
 }
+.edit-icons{
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+}

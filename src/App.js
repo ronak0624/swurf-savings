@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import Login from './pages/Login/index';
 import Shifts from './pages/Shifts/index';
 import Savings from './pages/Savings/index';
+import SignUp from './pages/SignUp/index';
 
 
 function App() {
@@ -86,7 +87,8 @@ function App() {
       </div>
     <Nav username="ronak" />
     <Switch>
-      <Route path="/" exact component={Login} />
+      <Route path="/login" exact component={Login} />
+      <Route path="/signup" exact component={SignUp} />
       <Route path="/savings" exact component={Savings} />
       <Route path="/shifts" component={Shifts} />
     </Switch>

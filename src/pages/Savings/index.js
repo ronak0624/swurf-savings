@@ -2,9 +2,10 @@ import React from 'react';
 import NewSavings from '../../components/NewSavings'
 import SavingsCard from '../../components/SavingsCard'
 import Container from 'react-bootstrap/Container'
-import Axios from 'axios';
+import axios from 'axios';
 
 const URL = "http://localhost:5000";
+const username = "ronak";
 
 var mockData = [
     {
@@ -369,27 +370,27 @@ var mockData = [
     }
   ]
 
-function SavingsList(){
+class Savings extends Component {
+  
+  componentDidMount = () => {
+    axios.get(URL + "/api/" + username + "savingGoals", (res) => {
+      console.log(res.body)
+    });
+  }
 
-    let userSavings;
+  loadSavings = () => {
+    mockData.map((shift) => (
+      <SavingsCard title={shift.title} price={shift.price} priceRemaining={shift.priceRemaining} />
+    ))
+  }
 
-    const componentDidMount = () => {
-      axios.get(URL + "/api/" + username + "savingGoals", (res) => {
-        userSavings = res.body;
-      });
-    }
-    return (
-        userSavings.map((shift) => (
-            <SavingsCard title={shift.title} price={shift.price} priceRemaining={shift.priceRemaining} />
-        ))
-    )
-}
-
-export default function Savings() {
-    return(
+    return() {
+      return(
         <Container>
             <NewSavings />
             <SavingsList />
         </Container>
-    )
+      )
+    }
 }
+

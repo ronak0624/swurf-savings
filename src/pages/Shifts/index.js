@@ -47,6 +47,8 @@ var mockData = [
   ]
 
 function ShiftList(){
+
+    
     return (
         mockData.map((shift) => (
             <ShiftCard shiftEnd={shift.shiftEnd} shiftStart={shift.shiftStart} earnings={shift.earnings}/>

@@ -2,7 +2,7 @@ import React from 'react';
 import NewSavings from '../../components/NewSavings'
 import SavingsCard from '../../components/SavingsCard'
 import Container from 'react-bootstrap/Container'
-import axios from 'axios';
+import API from "../utils/API";
 
 const URL = "http://localhost:5000";
 const username = "ronak";
@@ -371,12 +371,19 @@ var mockData = [
   ]
 
 class Savings extends Component {
-  
-  componentDidMount = () => {
-    axios.get(URL + "/api/" + username + "savingGoals", (res) => {
-      console.log(res.body)
-    });
+  state = {
+   goals: [] 
+  }; 
+
+  componentDidMount(){
+    this.loadGoals();
   }
+
+  loadGoals = () => {
+    API.findAllSavingGoals()
+    .then(res => this.setState({ goals: res.data }))
+    .catch(err => console.log(err));
+};
 
   loadSavings = () => {
     mockData.map((shift) => (
@@ -394,3 +401,4 @@ class Savings extends Component {
     }
 }
 
+export default Savings;

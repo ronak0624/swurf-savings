@@ -1,0 +1,13 @@
+.fa-money-bill-alt, .fa-clock, .fa-user, .swurfLogo{
+    height: 1rem;
+    display: block;
+    margin: 0 auto;
+}
+
+.navbar a{
+   color: #366E42;
+}
+
+.userNameNav {
+    color: #366E42;
+}

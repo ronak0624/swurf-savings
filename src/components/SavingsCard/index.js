@@ -16,6 +16,7 @@ function SavingsCard(props) {
   return (
     <Card className="mb-5 mx-auto">
       <Card.Body>
+        <div className="edit-icons"></div>
         <Card.Text className="text-center text-muted display-5 savings-title">I need this</Card.Text>
         <Card.Title className="mb-4">{props.title}</Card.Title>
         <Card.Text>

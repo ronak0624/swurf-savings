@@ -11,4 +11,6 @@
 }
 .modal-title{
     font-weight: bold;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }

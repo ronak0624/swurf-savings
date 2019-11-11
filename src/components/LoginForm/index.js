@@ -7,12 +7,11 @@ import axios from 'axios';
 
 const URL = "http://localhost:5000";
 
-export default function SignupForm() {
+export default function LoginForm() {
 
     const [validated, setValidated] = useState(false);
 
     const [state, setState] = useState({
-        email: "",
         username: "",
         password: ""
     })
@@ -30,11 +29,9 @@ export default function SignupForm() {
         if(validated){
             event.preventDefault();
             console.log(state);
-            axios.post(URL + '/register', {
-                name: "Fred",
+            axios.post(URL + '/login', {
                 username: state.username,
-                email: state.email,
-                password: state.password,
+                password: state.password
               })
               .then(function (response) {
                 console.log(response);
@@ -54,16 +51,17 @@ export default function SignupForm() {
     }
 
     return (
-        <Form className="mt-5 mx-auto w-75 signup-form" noValidate validated={validated} onSubmit={handleSubmit}>
-            <h2 className="display-5 mt-5 text-center"><b>Sign Up</b></h2>
+        <Form className="mt-5 mx-auto w-75 login-form" noValidate validated={validated} onSubmit={handleSubmit}>
+            <h2 className="display-5 mt-5 text-center"><b>Login</b></h2>
             <Form.Group md="4" controlId="validationCustomUsername">
                 <Form.Label>Username</Form.Label>
                 <InputGroup>
                     <InputGroup.Prepend>
-                        <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
+                        <InputGroup.Text id="inputAt">@</InputGroup.Text>
                     </InputGroup.Prepend>
                     <Form.Control
                         onChange={handleChange}
+                        value={state.username}
                         name="username"
                         type="text"
                         placeholder="Username"
@@ -71,16 +69,9 @@ export default function SignupForm() {
                         required
                     />
                     <Form.Control.Feedback type="invalid">
-                        Please choose a username.
+                        Please enter your username.
                     </Form.Control.Feedback>
                 </InputGroup>
-            </Form.Group>
-            <Form.Group controlId="validationEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control name="email" onChange={handleChange} value={state.email} type="text" placeholder="ronak@uw.edu" required />
-                <Form.Control.Feedback type="invalid">
-                    Please provide a valid email.
-              </Form.Control.Feedback>
             </Form.Group>
             <Form.Group controlId="validationPassword1">
                 <Form.Label>Password</Form.Label>

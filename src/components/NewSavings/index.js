@@ -53,7 +53,7 @@ export default function NewSavings(props) {
               </Form.Control>
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlInput1">
-              <Form.Label>Pricel</Form.Label>
+              <Form.Label>Price</Form.Label>
               <Form.Control type="number" placeholder="$400" />
             </Form.Group>
           </Form>

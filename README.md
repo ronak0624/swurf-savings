@@ -2,11 +2,7 @@
 
 We are Swurf Savings: a savings tool made by rideshare drivers, for rideshare drivers.
 
-## Features
-
-* Allow users to create savings goals with 3 different tiers of importance based on what they prioritize. This allows them to plan for long term savings goals as well as short term items that they might want to purchase.
-* Shows progress bars for each goal based on its selected priority.
-* Able to analyze average shift income to provide accurate updates to the number of shifts required to reach a saving goal.
+Swurf Savings is a web application that allows users to track their progress toward different savings goals with three tiers of importance based on what they prioritize.  The user has the ability to add/store their driving shifts which will impact the progress bars for each goal, calculated using its selected priority.  Using average shift income, which changes every time the user uploads a shift, the app provides accurate updates to the number of shifts required to reach a savings goal.
 
 
 ## Getting Started

@@ -20,3 +20,11 @@
 .App-link {
   color: #09d3ac;
 }
+
+.background-svg{
+  position: fixed;
+  bottom: 0px;
+  transform: scale(1.1);
+  left: 0;
+  z-index: -5;
+}

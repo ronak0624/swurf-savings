@@ -1,7 +1,8 @@
-import React from 'react';
-import NewShift from '../components/NewShift';
-import ShiftCard from '../components/ShiftCard';
+import React, {Component} from 'react';
+import NewShift from '../../components/NewShift';
+import ShiftCard from '../../components/ShiftCard';
 import Container from 'react-bootstrap/Container'
+import API from "../../utils/API";
 
 var mockData = [
     { shiftStart: 4, earnings: 136, shiftEnd: 3 },
@@ -46,19 +47,42 @@ var mockData = [
     { shiftStart: 19, earnings: 131, shiftEnd: 23 }
   ]
 
-function ShiftList(){
-    return (
-        mockData.map((shift) => (
-            <ShiftCard shiftEnd={shift.shiftEnd} shiftStart={shift.shiftStart} earnings={shift.earnings}/>
-        ))
-    )
-}
 
-export default function Shifts() {
-    return(
-        <Container>
-            <NewShift />
-            <ShiftList />
-        </Container>
-    )
+export default class Shifts extends Component {
+    state = {
+      shifts: []
+    }
+  
+    componentDidMount() {
+      this.loadShifts();
+    }
+  
+    loadShifts = () => {
+      API.findAllValidShifts(sessionStorage.user)
+        .then(res => {
+            this.setState({ shifts: res.data })
+            console.log(this.state.shifts);
+          }
+        )
+        .catch(err => console.log(err));
+    };
+
+    render() {
+        return (
+          <Container>
+            <NewShift shiftLoader={this.loadShifts}/>
+            {this.state.shifts.length ? (
+              this.state.shifts.map(shift => (
+                <ShiftCard 
+                    shiftEnd={shift.shiftEnd} 
+                    shiftStart={shift.shiftStart} 
+                    earnings={shift.earnings}
+                />
+              ))
+            ) : (
+                <h3 className="text-center">Add a previous shift!</h3>
+              )}
+          </Container>
+        )
+      }
 }

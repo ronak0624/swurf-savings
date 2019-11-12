@@ -41,3 +41,4 @@ export default class Savings extends Component {
       </Container>
     )
   }
+}

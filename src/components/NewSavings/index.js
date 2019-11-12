@@ -4,29 +4,38 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
 export default function NewSavings(props) {
+  const [validated, setValidated] = useState(false);
   const [show, setShow] = useState(false);
+
+  const [state, setState] = useState({
+    earnings : "",
+    shiftStart : "",
+    shiftEnd : ""
+  })
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  // handleInputChange = event => {
-  //   const name =event.target.name;
-  //   const value = event.target.value;
-  //   this.setState({
-  //     [name]:value
-  //   })
-  // }
+  const handleChange = e => {
+    const {name, value} = e.target
+    setState(prevState => ({
+      ...prevState,
+      [name]: value
+    }))
+  }
 
-  // handleSubmit = event => {
-  //   handleClose();
-  //   const form = event.currentTarget;
-  //   if (form.checkValidity() === false) {
-  //     event.preventDefault();
-  //     event.stopPropagation();
-  //   }
-
-  //   setValidated(true);
-  // };
+  const handleSubmit = event => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    setValidated(true);
+    if(validated === true){
+      handleClose();
+    }
+    console.log(state);
+  };
 
   return (
     <div>

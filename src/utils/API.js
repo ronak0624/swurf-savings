@@ -2,7 +2,7 @@ const axios = require("axios");
 
 const URL = "localhost:5000";
 
-module.export = {
+export default {
 
   //Get all shifts of certain user:
   findAllShifts: function(username) {
@@ -60,7 +60,7 @@ module.export = {
   },
 
   //Delete certain saving goal of certain user:
-  deleteSavingGoalById: function(username,shiftsId){
+  deleteSavingGoalById: function(username, savingGoalId){
     return axios.delete(URL + "/api/:" + username + "/savingGoals/" + savingGoalId);
   },
 
@@ -68,6 +68,7 @@ module.export = {
   getAverageShiftIncome: function(username){
     let totalIncome = 0;
     let totalHoursWorked = 0;
+    let totalShiftsWorked;
 
     axios
     .get(URL + "/api/" + username + "/shifts")
@@ -90,8 +91,8 @@ module.export = {
     .get(URL + "/api/" + username + "/savingGoals")
     .then(res => {
       let savingGoalsArray = res.savingGoals;
-      ShiftsRemainingArray = [];
-      AverageShiftIncome = getAverageShiftIncome(username);
+      let ShiftsRemainingArray = [];
+      let AverageShiftIncome = this.getAverageShiftIncome(username);
       for (let i = 0; i < savingGoalsArray.length; i++){
         let shiftsRemaining = savingGoalsArray[i].price_remaining / AverageShiftIncome;
         ShiftsRemainingArray.push(shiftsRemaining);

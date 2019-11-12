@@ -1,13 +1,62 @@
 # Swurf Savings
 
-A savings tool designed to help rideshare (Uber, DoorDash, Postmates, Grubhub, etc.) workers achieve their savings goals. 
+We are Swurf Savings: a savings tool made by rideshare drivers, for rideshare drivers.
 
-The end goal is for someone to be able to look at the site and see "How many shifts do I need to take to reach _____ savings goal."
+## Features
 
-#### The MVP features are:
- - Have payment details be updated using [Plaid API](https://plaid.com/docs)
- - Allow users to create savings goals with 3 different tiers of importance based on what they prioritize. (This allows them to plan for long term savings goals as well as short term items that they might want to purchase)
- - Shows progress to each goal based on its priority
- - Is able to analyze income based on hours spent as well as what situations will allow them to earn more money (Ex. When I DoorDash, I might make more while delivering for 3 hours during Sunday Football as opposed to 3pm on a Wednesday)
+* Allow users to create savings goals with 3 different tiers of importance based on what they prioritize. This allows them to plan for long term savings goals as well as short term items that they might want to purchase.
+* Shows progress bars for each goal based on its selected priority.
+* Able to analyze shift income to provide accurate updates to the number of shifts required to reach a saving goal.
 
- #### Stretch goals
+
+## Getting Started
+
+In the project directory, you can run `npm start`, which runs the app in the development mode.
+
+Open http://localhost:3000 to view it in the browser.
+
+The page will reload if you make edits.
+
+You will also see any errors logged in the console.
+
+See deployment for notes on how to deploy the project on a live system.
+
+### Installing
+
+In your terminal, you will run `npm install` to install the project's dependencies to your local machine.
+
+```
+Give the example
+```
+
+And repeat
+
+```
+until finished
+```
+
+End with an example of getting some data out of the system or using it for a little demo
+
+
+## Deployment
+
+
+
+## Built With
+
+* Bootstraped with the [Create React App](https://github.com/facebook/create-react-app)
+* 
+* 
+
+## Authors
+
+* **Ronak Patel**
+* **Andrew Lin**
+* **Leah Munson**
+* **Nicole Roberts**
+
+## Learn More
+
+You can learn more in the [Create React App documentation.](https://create-react-app.dev/docs/getting-started/)
+
+To learn React, check out the React documentation.

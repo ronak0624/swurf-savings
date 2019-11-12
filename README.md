@@ -6,7 +6,7 @@ We are Swurf Savings: a savings tool made by rideshare drivers, for rideshare dr
 
 * Allow users to create savings goals with 3 different tiers of importance based on what they prioritize. This allows them to plan for long term savings goals as well as short term items that they might want to purchase.
 * Shows progress bars for each goal based on its selected priority.
-* Able to analyze shift income to provide accurate updates to the number of shifts required to reach a saving goal.
+* Able to analyze average shift income to provide accurate updates to the number of shifts required to reach a saving goal.
 
 
 ## Getting Started
@@ -59,4 +59,4 @@ End with an example of getting some data out of the system or using it for a lit
 
 You can learn more in the [Create React App documentation.](https://create-react-app.dev/docs/getting-started/)
 
-To learn React, check out the React documentation.
+To learn React, check out the [React documentation.](https://reactjs.org/)

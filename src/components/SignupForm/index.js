@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import Form from 'react-bootstrap/Form'
 import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 import InputGroup from 'react-bootstrap/InputGroup'
 import Row from 'react-bootstrap/Row'
 import axios from 'axios';
 
-const URL = "http://localhost:5000";
+const URL = "https://swurfapi.herokuapp.com";
 
 export default function SignupForm() {
 
@@ -108,7 +109,7 @@ export default function SignupForm() {
               </Form.Control.Feedback>
             </Form.Group>
             <Row>
-                <Link className="mx-auto submit-btn" type="primary" onClick={handleSubmit}>Submit</Link>
+                <Button className="mx-auto submit-btn" type="primary" onClick={handleSubmit}>Submit</Button>
             </Row>
         </Form>
     );

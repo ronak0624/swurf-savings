@@ -37,9 +37,12 @@ export default function NewShift(props) {
     }
     setValidated(true);
     if(validated === true){
-      handleClose();
       API.postNewShift(sessionStorage.user, state)
-        .then(res => console.log(res))
+        .then(res => {
+            console.log(res);
+            handleClose();
+          }
+        )
     }
   };
 

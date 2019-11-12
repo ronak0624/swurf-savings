@@ -35,10 +35,13 @@ export default function NewSavings(props) {
     }
     setValidated(true);
     if (validated === true) {
+      handleClose();
       API.postNewSavingGoal(sessionStorage.user, state)
-        .then(res => console.log(res))
+        .then(res => {
+          console.log(res);
+          window.location.reload();
+        })
     }
-    console.log(state);
   };
 
   return (

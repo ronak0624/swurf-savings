@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const URL = "http://localhost:5000";
+const URL = "https://swurfapi.herokuapp.com";
 
 
 export default {

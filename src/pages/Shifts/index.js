@@ -70,7 +70,7 @@ export default class Shifts extends Component {
     render() {
         return (
           <Container>
-            <NewShift />
+            <NewShift shiftLoader={this.loadShifts}/>
             {this.state.shifts.length ? (
               this.state.shifts.map(shift => (
                 <ShiftCard 

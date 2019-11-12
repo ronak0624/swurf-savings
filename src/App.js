@@ -50,7 +50,7 @@ function App() {
       </div>
     <Nav username={sessionStorage.user} />
     <Switch>
-      <Route path="/login" exact component={Login} />
+      <Route path="/" exact component={Login} />
       <Route path="/signup" exact component={SignUp} />
       <Route path="/savings" exact component={Savings} />
       <Route path="/shifts" component={Shifts} />

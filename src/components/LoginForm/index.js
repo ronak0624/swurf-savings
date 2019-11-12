@@ -37,6 +37,7 @@ export default function LoginForm() {
               .then(function (response) {
                   if(response.data.success){
                     sessionStorage.setItem("user", state.username);
+                    window.location.replace("/shifts")
                   }
                 console.log(response)
               })

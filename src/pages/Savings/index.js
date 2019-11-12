@@ -373,10 +373,10 @@ export default class Savings extends Component {
   }
 
   componentDidMount() {
-    this.loadBooks();
+    this.loadSavings();
   }
 
-  loadBooks = () => {
+  loadSavings = () => {
     API.findAllSavingGoals(sessionStorage.user)
       .then(res => {
           this.setState({ savings: res.data })

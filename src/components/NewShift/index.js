@@ -3,6 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import API from '../../utils/API';
+import InputGroup from 'react-bootstrap/InputGroup';
 import './style.css'
 import { validate } from '@babel/types';
 
@@ -54,12 +55,23 @@ export default function NewShift(props) {
         </Modal.Header>
         <Modal.Body>
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
-            <Form.Group controlId="validationCustom03">
-              <Form.Label>Earnings ($)</Form.Label>
-              <Form.Control name="earnings" onChange={handleChange} value={state.earnings} type="text" placeholder="$55.45" required />
-              <Form.Control.Feedback type="invalid">
-                Please provide a valid earnings number
-              </Form.Control.Feedback>
+            <Form.Group>
+              <InputGroup>
+                <InputGroup.Prepend>
+                    <InputGroup.Text>S</InputGroup.Text>
+                </InputGroup.Prepend>
+                <Form.Control
+                    onChange={handleChange}
+                    value={state.earnings}
+                    name="earnings"
+                    type="number"
+                    placeholder="$55.45"
+                    required
+                />
+                <Form.Control.Feedback type="invalid">
+                    Please enter an earnings number.
+                </Form.Control.Feedback>
+              </InputGroup>
             </Form.Group>
             <Form.Group controlId="validationCustom04">
               <Form.Label>Shift Start</Form.Label>

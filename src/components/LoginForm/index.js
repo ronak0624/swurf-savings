@@ -35,7 +35,10 @@ export default function LoginForm() {
                 password: state.password
               })
               .then(function (response) {
-                console.log(response);
+                  if(response.data.success){
+                    sessionStorage.setItem("user", state.username);
+                  }
+                console.log(response)
               })
               .catch(function (error) {
                 console.log(error);

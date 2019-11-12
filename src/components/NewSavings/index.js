@@ -2,26 +2,29 @@ import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
+import API from '../../utils/API';
 
 export default function NewSavings(props) {
   const [validated, setValidated] = useState(false);
   const [show, setShow] = useState(false);
 
   const [state, setState] = useState({
-    earnings : "",
-    shiftStart : "",
-    shiftEnd : ""
+    title: "",
+    price: 0,
+    price_remaining: 0,
+    priority: ""
   })
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const handleChange = e => {
-    const {name, value} = e.target
+    const { name, value } = e.target
     setState(prevState => ({
       ...prevState,
       [name]: value
     }))
+    console.log(state)
   }
 
   const handleSubmit = event => {
@@ -31,8 +34,9 @@ export default function NewSavings(props) {
       event.stopPropagation();
     }
     setValidated(true);
-    if(validated === true){
-      handleClose();
+    if (validated === true) {
+      API.postNewSavingGoal(sessionStorage.user, state)
+        .then(res => console.log(res))
     }
     console.log(state);
   };
@@ -49,13 +53,13 @@ export default function NewSavings(props) {
         </Modal.Header>
         <Modal.Body>
           <Form>
-            <Form.Group controlId="exampleForm.ControlInput1">
+            <Form.Group controlId="newForm.goal">
               <Form.Label>Goal</Form.Label>
-              <Form.Control type="email" placeholder="New Skis" />
+              <Form.Control name="title" onChange={handleChange} value={state.title} type="email" placeholder="New Skis" />
             </Form.Group>
-            <Form.Group controlId="exampleForm.ControlSelect1">
+            <Form.Group controlId="newForm.priority">
               <Form.Label>Importance</Form.Label>
-              <Form.Control as="select">
+              <Form.Control as="select" name="priority" onChange={handleChange} value={state.priority}>
                 <option>1 (I need this as fast as possible)</option>
                 <option>2 (I really want this)</option>
                 <option>3 (I want this but don't need it right away)</option>
@@ -63,12 +67,17 @@ export default function NewSavings(props) {
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlInput1">
               <Form.Label>Price</Form.Label>
-              <Form.Control type="number" placeholder="$400" />
+              <Form.Control onChange={handleChange} 
+                  value={state.price} 
+                  name="price" 
+                  type="number" 
+                  placeholder="$400" />
             </Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary">
+          <Button variant="primary"
+            onClick={handleSubmit}>
             Submit
           </Button>
         </Modal.Footer>

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import Modal from 'react-bootstrap/Modal'
-import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form'
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import API from '../../utils/API';
 import './style.css'
 import { validate } from '@babel/types';
 
@@ -36,8 +37,9 @@ export default function NewShift(props) {
     setValidated(true);
     if(validated === true){
       handleClose();
+      API.postNewShift(sessionStorage.user, state)
+        .then(res => console.log(res))
     }
-    console.log(state);
   };
 
   return (
@@ -61,14 +63,14 @@ export default function NewShift(props) {
             </Form.Group>
             <Form.Group controlId="validationCustom04">
               <Form.Label>Shift Start</Form.Label>
-              <Form.Control name="shiftStart" onChange={handleChange} value={state.shiftStart} type="text" placeholder="4:00" required />
+              <Form.Control name="shiftStart" onChange={handleChange} value={state.shiftStart} type="time" placeholder="4:00" required />
               <Form.Control.Feedback type="invalid">
                 Please provide a valid time.
               </Form.Control.Feedback>
             </Form.Group>
             <Form.Group controlId="validationCustom05">
               <Form.Label>Shift End</Form.Label>
-              <Form.Control name="shiftEnd" onChange={handleChange} value={state.shiftEnd} type="text" placeholder="8:00" required />
+              <Form.Control name="shiftEnd" onChange={handleChange} value={state.shiftEnd} type="time" placeholder="8:00" required />
               <Form.Control.Feedback type="invalid">
                 Please provide a valid time.
               </Form.Control.Feedback>

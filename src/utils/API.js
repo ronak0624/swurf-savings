@@ -1,73 +1,75 @@
 const axios = require("axios");
 
-const URL = "localhost:5000";
+const URL = "http://localhost:5000";
 
-module.export = {
+
+export default {
 
   //Get all shifts of certain user:
   findAllShifts: function(username) {
-    return axios.get(URL + "/api/:" + username + "/allShifts");
+    return axios.get(URL + "/api/" + username + "/allShifts");
   },
 
   //Get all valid shifts of certain user:
   findAllValidShifts: function(username) {
-    return axios.get(URL + "/api/:" + username + "/shifts");
+    return axios.get(URL + "/api/" + username + "/shifts");
   },
   
   //Submit a new shift of certain user:
   postNewShift: function(username,shiftsData){
-    return axios.post(URL + "/api/:" + username + "/shifts",shiftsData);
+    return axios.post(URL + "/api/" + username + "/shifts",shiftsData);
   },
 
   //Remove all shifts of certain user
   removeAllShifts: function(username){
-    return axios.delete(URL + "/api/:" + username + "/shifts");
+    return axios.delete(URL + "/api/" + username + "/shifts");
   },
   
   //Get certain shift of certain user:
   findShiftById: function(username,shiftId){
-    return axios.get(URL + "/api/:" + username + "/shift/" + shiftId);
+    return axios.get(URL + "/api/" + username + "/shift/" + shiftId);
   },
 
   //Delete certain shift from certain user:
   deleteShiftById: function(username,shiftsId){
-    return axios.delete(URL + "/api/:" + username + "/shift/"+shiftsId);
+    return axios.delete(URL + "/api/" + username + "/shift/" + shiftsId);
   },
 
   //Get all saving goals of certain user:
   findAllSavingGoals: function(username) {
-    return axios.get(URL + "/api/:" + username + "/allSavingGoals");
+    return axios.get(URL + "/api/" + username + "/allSavingGoals");
   },
 
   //Get all valid saving goals of certain user:
   findAllValidSavingGoals: function(username) {
-    return axios.get(URL + "/api/:" + username + "/savingGoals");
+    return axios.get(URL + "/api/" + username + "/savingGoals");
   },
 
   //Add a new saving goal of certain user:
   postNewSavingGoal: function(username,savingData) {
-    return axios.post(URL + "/api/:" + username + "/savingGoals", savingData);
+    return axios.post(URL + "/api/" + username + "/savingGoals", savingData);
   },
 
   //Delete all savings goals of certain user:
   removeAllSavingGoals: function(username){
-    return axios.delete(URL + "/api/:" + username + "/savingGoals/");
+    return axios.delete(URL + "/api/" + username + "/savingGoals/");
   },
 
   //Get certain saving goal of certain user:
   findSavingGoalById: function(username,savingGoalId) {
-    return axios.get(URL + "/api/:" + username + "/savingGoals/" + savingGoalId);
+    return axios.get(URL + "/api/" + username + "/savingGoals/" + savingGoalId);
   },
 
   //Delete certain saving goal of certain user:
   deleteSavingGoalById: function(username,shiftsId){
-    return axios.delete(URL + "/api/:" + username + "/savingGoals/" + savingGoalId);
+    return axios.delete(URL + "/api/" + username + "/savingGoals/" + shiftsId);
   },
 
   //Calculating average income
   getAverageShiftIncome: function(username){
     let totalIncome = 0;
     let totalHoursWorked = 0;
+    let totalShiftsWorked = 0;
 
     axios
     .get(URL + "/api/" + username + "/shifts")
@@ -90,8 +92,8 @@ module.export = {
     .get(URL + "/api/" + username + "/savingGoals")
     .then(res => {
       let savingGoalsArray = res.savingGoals;
-      ShiftsRemainingArray = [];
-      AverageShiftIncome = getAverageShiftIncome(username);
+      let ShiftsRemainingArray = [];
+      let AverageShiftIncome = this.getAverageShiftIncome(username);
       for (let i = 0; i < savingGoalsArray.length; i++){
         let shiftsRemaining = savingGoalsArray[i].price_remaining / AverageShiftIncome;
         ShiftsRemainingArray.push(shiftsRemaining);

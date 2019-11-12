@@ -1,20 +1,23 @@
 import React, {useState} from 'react';
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 import InputGroup from 'react-bootstrap/InputGroup'
 import Row from 'react-bootstrap/Row'
 import axios from 'axios';
 
-const URL = "http://localhost:5000";
+const URL = "https://swurfapi.herokuapp.com";
 
 export default function SignupForm() {
 
     const [validated, setValidated] = useState(false);
 
     const [state, setState] = useState({
-        email: "",
+        name: "",
         username: "",
-        password: ""
+        email: "",
+        password: "",
+        password2: ""
     })
 
     const handleSubmit = event => {
@@ -31,10 +34,11 @@ export default function SignupForm() {
             event.preventDefault();
             console.log(state);
             axios.post(URL + '/register', {
-                name: "Fred",
+                name: state.name,
                 username: state.username,
                 email: state.email,
                 password: state.password,
+                password2: state.password2,
               })
               .then(function (response) {
                 console.log(response);
@@ -66,6 +70,7 @@ export default function SignupForm() {
                         onChange={handleChange}
                         name="username"
                         type="text"
+                        value={state.username}
                         placeholder="Username"
                         aria-describedby="inputGroupPrepend"
                         required
@@ -74,6 +79,13 @@ export default function SignupForm() {
                         Please choose a username.
                     </Form.Control.Feedback>
                 </InputGroup>
+            </Form.Group>
+            <Form.Group controlId="validationEmail">
+                <Form.Label>Name</Form.Label>
+                <Form.Control name="name" onChange={handleChange} value={state.name} type="text" placeholder="Ronak Patel" required />
+                <Form.Control.Feedback type="invalid">
+                    Please provide a valid name.
+              </Form.Control.Feedback>
             </Form.Group>
             <Form.Group controlId="validationEmail">
                 <Form.Label>Email</Form.Label>
@@ -85,6 +97,13 @@ export default function SignupForm() {
             <Form.Group controlId="validationPassword1">
                 <Form.Label>Password</Form.Label>
                 <Form.Control name="password" onChange={handleChange} value={state.password} type="password" placeholder="password" required />
+                <Form.Control.Feedback type="invalid">
+                    Please provide a valid password.
+              </Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group controlId="validationPassword1">
+                <Form.Label>Confirm password</Form.Label>
+                <Form.Control name="password2" onChange={handleChange} value={state.password2} type="password" placeholder="password" required />
                 <Form.Control.Feedback type="invalid">
                     Please provide a valid password.
               </Form.Control.Feedback>

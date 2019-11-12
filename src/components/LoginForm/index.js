@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import { Link } from "react-router-dom";
 import InputGroup from 'react-bootstrap/InputGroup'
 import Row from 'react-bootstrap/Row'
 import axios from 'axios';
 
-const URL = "http://localhost:5000";
+const URL = "https://swurfapi.herokuapp.com";
 
 export default function LoginForm() {
 
@@ -34,7 +35,10 @@ export default function LoginForm() {
                 password: state.password
               })
               .then(function (response) {
-                console.log(response);
+                  if(response.data.success){
+                    sessionStorage.setItem("user", state.username);
+                  }
+                console.log(response)
               })
               .catch(function (error) {
                 console.log(error);
@@ -81,7 +85,7 @@ export default function LoginForm() {
               </Form.Control.Feedback>
             </Form.Group>
             <Row>
-                <Button className="mx-auto submit-btn" type="primary" onClick={handleSubmit}>Submit</Button>
+                <Button className="mx-auto submit-btn" type="button" onClick={handleSubmit}>Submit</Button>
             </Row>
         </Form>
     );

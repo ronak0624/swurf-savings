@@ -2,7 +2,6 @@ const axios = require("axios");
 
 const URL = "https://swurfapi.herokuapp.com";
 
-
 export default {
 
   //Get all shifts of certain user:

@@ -20,29 +20,22 @@ See deployment for notes on how to deploy the project on a live system.
 ### Installing
 
 In your terminal, you will run `npm install` to install the project's dependencies to your local machine.
+The backend runs on a remote server; you can view the repository [here](https://github.com/ronak0624/swurf-savings-backend)
 
 ```
-Give the example
+npm install
 ```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 
 ## Deployment
 
-
+Deployed with Heroku
 
 ## Built With
 
 * Bootstraped with the [Create React App](https://github.com/facebook/create-react-app)
-* 
-* 
+* react-bootstrap
+* react-router
 
 ## Authors
 

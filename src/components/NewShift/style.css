@@ -14,3 +14,6 @@
     margin-left: 50%;
     transform: translateX(-50%);
 }
+.submit-btn{
+    margin: 0 auto;
+}

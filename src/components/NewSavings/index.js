@@ -24,24 +24,26 @@ export default function NewSavings(props) {
       ...prevState,
       [name]: value
     }))
-    console.log(state)
   }
 
   const handleSubmit = event => {
+    console.log("Test 1");
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     }
+    console.log("Test 2");
     setValidated(true);
-    if (validated === true) {
-      handleClose();
-      API.postNewSavingGoal(sessionStorage.user, state)
-        .then(res => {
-          console.log(res);
-          window.location.reload();
-        })
-    }
+    console.log(validated, "+",state.priority);
+    if (validated === true && state.priority !== "Select") {
+      console.log("Test 3")
+        API.postNewSavingGoal(sessionStorage.user, state)
+          .then(res => {
+            console.log(res);
+            window.location.reload();
+          })
+      }
   };
 
   return (
@@ -62,7 +64,8 @@ export default function NewSavings(props) {
             </Form.Group>
             <Form.Group controlId="newForm.priority">
               <Form.Label>Importance</Form.Label>
-              <Form.Control as="select" name="priority" onChange={handleChange} value={state.priority}>
+              <Form.Control as="select" name="priority" onChange={handleChange} value={state.priority} selected="1 (I need this as fast as possible)">
+                <option>Select</option>
                 <option>1 (I need this as fast as possible)</option>
                 <option>2 (I really want this)</option>
                 <option>3 (I want this but don't need it right away)</option>
@@ -80,7 +83,8 @@ export default function NewSavings(props) {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary"
-            onClick={handleSubmit}>
+            onClick={handleSubmit}
+            className="submit-btn">
             Submit
           </Button>
         </Modal.Footer>

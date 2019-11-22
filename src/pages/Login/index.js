@@ -25,7 +25,7 @@ export default function Login() {
               </svg>
             </Row>
             <Row><LoginForm /></Row>
-            <Row><a className="mx-auto mt-4" href="/signup">Don't have an account?</a></Row>
+            <Row><a className="mx-auto mt-4 login-subtext" href="/signup">Don't have an account?</a></Row>
           </Col>
         </Row>
       </Container>

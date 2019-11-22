@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const URL = "https://swurfapi.herokuapp.com";
+const URL = "http://localhost:5000";
 
 export default {
 
@@ -36,7 +36,7 @@ export default {
 
   //Get all saving goals of certain user:
   findAllSavingGoals: function(username) {
-    return axios.get(URL + "/api/" + username + "/allSavingGoals");
+    return axios.get(URL + "/api/" + username + "/allSavingGoals")
   },
 
   //Get all valid saving goals of certain user:

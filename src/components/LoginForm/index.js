@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 import InputGroup from 'react-bootstrap/InputGroup'
 import Row from 'react-bootstrap/Row'
 import axios from 'axios';
+import './style.css';
 
-const URL = "https://swurfapi.herokuapp.com";
+const URL = "http://localhost:5000";
 
 export default function LoginForm() {
 

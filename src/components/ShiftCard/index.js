@@ -11,11 +11,10 @@ export default function ShiftCard(props) {
         let parsedEnd = parseInt(end.substring(0,2));
         let prefix = parsedEnd - parsedStart;
 
-        console.log(parsedStart, parsedEnd, "this is the prefix before")
         if(parsedStart > parsedEnd){
             prefix = 12 - parsedStart + parsedEnd;
         }
-        console.log(prefix, "this is the prefix")
+
         let suffix = Math.abs(parseInt(end.substring(3,5)) - parseInt(start.substring(3,5)));
         return prefix + " hours, " + suffix + " minutes"
     }

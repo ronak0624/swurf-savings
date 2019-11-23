@@ -41,6 +41,7 @@ export default function NewShift(props) {
         .then(res => {
             console.log(res);
             handleClose();
+            window.location.reload();
           }
         )
     }

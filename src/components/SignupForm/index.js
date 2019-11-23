@@ -1,12 +1,13 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form'
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import InputGroup from 'react-bootstrap/InputGroup'
 import Row from 'react-bootstrap/Row'
 import axios from 'axios';
+import "./style.css"
 
-const URL = "https://swurfapi.herokuapp.com";
+const URL = "http://localhost:5000";
 
 export default function SignupForm() {
 
@@ -42,6 +43,7 @@ export default function SignupForm() {
               })
               .then(function (response) {
                 console.log(response);
+                window.location.replace("/");
               })
               .catch(function (error) {
                 console.log(error);
@@ -80,7 +82,7 @@ export default function SignupForm() {
                     </Form.Control.Feedback>
                 </InputGroup>
             </Form.Group>
-            <Form.Group controlId="validationEmail">
+            <Form.Group controlId="validationName">
                 <Form.Label>Name</Form.Label>
                 <Form.Control name="name" onChange={handleChange} value={state.name} type="text" placeholder="Ronak Patel" required />
                 <Form.Control.Feedback type="invalid">
@@ -101,7 +103,7 @@ export default function SignupForm() {
                     Please provide a valid password.
               </Form.Control.Feedback>
             </Form.Group>
-            <Form.Group controlId="validationPassword1">
+            <Form.Group controlId="validationPassword2">
                 <Form.Label>Confirm password</Form.Label>
                 <Form.Control name="password2" onChange={handleChange} value={state.password2} type="password" placeholder="password" required />
                 <Form.Control.Feedback type="invalid">

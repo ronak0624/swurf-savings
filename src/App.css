@@ -32,10 +32,27 @@
 .form-group input {
   border-radius: 0.7rem;
 }
+.form-group label,
+.input-group label{
+  font-weight: bold;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
 .input-group input{
   border-radius: 0 0.7rem 0.7rem 0 !important;
 }
+
 .input-group-prepend span{
-  background-color: rgba(54, 110, 67, 0.5);
+  background-color: rgb(54, 110, 67);
+  color: white;
   border-radius: 0.7rem 0 0 0.7rem;
+
+}
+
+select{
+  border-radius: 0.7rem !important;
 }

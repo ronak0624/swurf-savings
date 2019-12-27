@@ -1,9 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import './style.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
-
 
 function Nav(props) {
   return (
@@ -36,10 +33,6 @@ function Nav(props) {
           </li>
         </ul>
       </div>
-      <span class="navbar-text text-light">
-        <FontAwesomeIcon icon="coffee" />
-        @{props.username}
-      </span>
     </nav>
   );
 }

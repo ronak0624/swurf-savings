@@ -9,7 +9,7 @@ import store from "./store";
 import Login from './pages/Login/index';
 import Shifts from './pages/Shifts/index';
 import Savings from './pages/Savings/index';
-import SignUp from './pages/SignUp/index';
+import Register from './pages/Register/index';
 
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
         <Nav username={sessionStorage.user} />
         <Switch>
           <Route path="/" exact component={Login} />
-          <Route path="/signup" exact component={SignUp} />
+          <Route path="/register" exact component={Register} />
           <Route path="/savings" exact component={Savings} />
           <Route path="/shifts" component={Shifts} />
         </Switch>

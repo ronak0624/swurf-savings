@@ -80,7 +80,7 @@ class Login extends Component {
                     invalid: errors.email || errors.emailnotfound
                   })}
                 />
-                <label htmlFor="email">Email</label>
+                <label className={classnames("", {active:this.state.email !== ""})} htmlFor="email">Email</label>
                 <span className="red-text">
                   {errors.email}
                   {errors.emailnotfound}
@@ -97,7 +97,7 @@ class Login extends Component {
                     invalid: errors.password || errors.passwordincorrect
                   })}
                 />
-                <label htmlFor="password">Password</label>
+                <label className={classnames("", {active:this.state.password !== ""})} htmlFor="password">Password</label>
                 <span className="red-text">
                   {errors.password}
                   {errors.passwordincorrect}

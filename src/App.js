@@ -13,6 +13,7 @@ import Login from './pages/Login/index';
 import Shifts from './pages/Shifts/index';
 import Savings from './pages/Savings/index';
 import Register from './pages/Register/index';
+import PrivateRoute from './components/Private/PrivateRoute'
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -37,13 +38,13 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Nav username={sessionStorage.user} />
-        <Switch>
+        {/* <Nav username={sessionStorage.user} /> */}
           <Route path="/" exact component={Login} />
           <Route path="/login" exact component={Login} />
           <Route path="/register" exact component={Register} />
-          <Route path="/savings" exact component={Savings} />
-          <Route path="/shifts" component={Shifts} />
+        <Switch>
+          <PrivateRoute exact path="/savings" component={Savings} />
+          <PrivateRoute exact path="/shifts" component={Shifts} />
         </Switch>
       </Router>
     </Provider>

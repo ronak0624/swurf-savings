@@ -1,0 +1,17 @@
+.Modal{
+    background-color: #000;
+    max-width: 768px;
+    margin: auto;
+    border-radius: 10px;
+}
+.Modal:focus{
+    outline: none;
+}
+.Overlay{
+    background-color: rgba(0,0,0,0.2);
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+}

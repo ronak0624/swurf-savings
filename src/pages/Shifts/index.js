@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import NewShift from '../../components/NewShift';
 import ShiftCard from '../../components/ShiftCard';
 import Container from 'react-bootstrap/Container';
-import Modal from '../../components/Modal'
 import API from "../../utils/API";
 
 export default class Shifts extends Component {
@@ -27,7 +26,6 @@ export default class Shifts extends Component {
     render() {
         return (
           <Container>
-            <Modal />
             {/* <NewShift shiftLoader={this.loadShifts}/>
             {this.state.shifts.length ? (
               this.state.shifts.map(shift => (

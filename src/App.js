@@ -10,6 +10,8 @@ import { Provider } from "react-redux";
 import store from "./store";
 
 import Login from './pages/Login/index';
+import LoginGrayshift from './pages/LoginGrayshift/index';
+import RegisterGrayshift from './pages/RegisterGrayshift/index';
 import Shifts from './pages/Shifts/index';
 import Savings from './pages/Savings/index';
 import Register from './pages/Register/index';
@@ -40,8 +42,8 @@ function App() {
       <Router>
         {/* <Nav username={sessionStorage.user} /> */}
           <Route path="/" exact component={Login} />
-          <Route path="/login" exact component={Login} />
-          <Route path="/register" exact component={Register} />
+          <Route path="/login" exact component={LoginGrayshift} />
+          <Route path="/register" exact component={RegisterGrayshift} />
         <Switch>
           <PrivateRoute exact path="/savings" component={Savings} />
           <PrivateRoute exact path="/shifts" component={Shifts} />

@@ -33,6 +33,7 @@ class Register extends Component {
   }
 
   onChange = e => {
+    this.cursor = e.target.selectionStart;
     this.setState({ [e.target.id]: e.target.value });
   };
 
@@ -48,6 +49,10 @@ class Register extends Component {
 
     this.props.registerUser(newUser, this.props.history);
   };
+
+  onFocus = e => {
+    e.target.selectionStart = this.cursor;
+  }
 
   render() {
     const { errors } = this.state;
@@ -72,6 +77,7 @@ class Register extends Component {
               <div className="input-field col s12">
                 <input
                   onChange={this.onChange}
+                  onFocus={this.onFocus}
                   value={this.state.name}
                   error={errors.name}
                   id="name"
@@ -86,6 +92,7 @@ class Register extends Component {
               <div className="input-field col s12">
                 <input
                   onChange={this.onChange}
+                  onFocus={this.onFocus}
                   value={this.state.email}
                   error={errors.email}
                   id="email"
@@ -100,6 +107,7 @@ class Register extends Component {
               <div className="input-field col s12">
                 <input
                   onChange={this.onChange}
+                  onFocus={this.onFocus}
                   value={this.state.password}
                   error={errors.password}
                   id="password"
@@ -114,6 +122,7 @@ class Register extends Component {
               <div className="input-field col s12">
                 <input
                   onChange={this.onChange}
+                  onFocus={this.onFocus}
                   value={this.state.password2}
                   error={errors.password2}
                   id="password2"

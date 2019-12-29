@@ -26,7 +26,6 @@ export default class Savings extends Component {
   render() {
     return (
       <Container>
-        <NewSavings />
         {this.state.savings.length ? (
           this.state.savings.map(saving => (
             <SavingsCard

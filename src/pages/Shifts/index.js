@@ -50,7 +50,7 @@ var mockData = [
 
 export default class Shifts extends Component {
     state = {
-      shifts: []
+      shifts: mockData
     }
   
     componentDidMount() {

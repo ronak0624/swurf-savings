@@ -7,27 +7,32 @@ import API from '../../utils/API';
 import './style.css'
 
 ReactModal.setAppElement('#root')
-var test = [
-  {
-      id: 0,
-      title: '1 (I NEED this NOW)'
-  },
-  {
-    id: 1,
-    title: '2 (I WANT this really badly)'
-    
-  },
-  {
-    id: 2,
-    title: '3 (I want this but can wait)'
-  }
-]
 
 export default class Savings extends Component {
   state = {
     savings: [],
-    priorityDropdown: "",
-    showModal: false
+    dropdownTitle: "Priority",
+    showModal: false,
+    priority: [
+      {
+        id: 0,
+        title: '1 (I NEED this NOW)',
+        selected: false,
+        key: 'priority'
+      },
+      {
+        id: 1,
+        title: '2 (I WANT this really badly)',
+        selected: false,
+        key: 'priority'
+      },
+      {
+        id: 2,
+        title: '3 (I want this but can wait)',
+        selected: false,
+        key: 'priority'
+      }
+    ]
   }
 
   componentDidMount() {
@@ -52,9 +57,12 @@ export default class Savings extends Component {
     this.setState({ showModal: false });
   }
 
-  dropdownSelected = (id) => {
+  resetThenSet = (id, key) => {
+    let temp = JSON.parse(JSON.stringify(this.state[key]))
+    temp.forEach(item => item.selected = false);
+    temp[id].selected = true;
     this.setState({
-      priorityDropdown: test[id].title
+      [key]: temp
     })
   }
 
@@ -83,7 +91,10 @@ export default class Savings extends Component {
             <form>
               <label htmlFor="title">Title</label>
               <input className="form-control form-control-lg mb-5" id="title" type="text" placeholder="New skis"/>
-              <Dropdown selectedItem={this.dropdownSelected} title="Priority" list={test}/>
+              <Dropdown title="Priority"
+                        list={this.state.priority}
+                        resetThenSet={this.resetThenSet}
+                        id="priority"/>
             </form>
           </div>
           <div className="modal-footer">

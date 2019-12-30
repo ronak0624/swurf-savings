@@ -1,11 +1,11 @@
 .dd-wrapper{
-
+    max-width: 12rem;
 }
 .dd-header{
     background-color: hsl(211, 100%, 50%);
     transition: 0.2s;
     color: white;
-    max-width: 200px;
+    max-width: 12rem;
     text-align: center;
     padding: 1rem;
     border-radius: 0.5rem;

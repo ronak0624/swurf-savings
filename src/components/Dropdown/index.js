@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
+import onClickOutside from "react-onclickoutside";
 import './style.css'
 
-export default class Dropdown extends Component {
+class Dropdown extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -9,7 +10,8 @@ export default class Dropdown extends Component {
           headerTitle: this.props.title
         }
       }
-      handleClickOutside(){
+      handleClickOutside(event){
+          console.log("CLICKING OUTSITE DROPDOWN")
         this.setState({
           listOpen: false
         })
@@ -19,6 +21,7 @@ export default class Dropdown extends Component {
           listOpen: !prevState.listOpen
         }))
       }
+      
       render(){
         const{list} = this.props
         const{listOpen, headerTitle} = this.state
@@ -33,10 +36,12 @@ export default class Dropdown extends Component {
             </div>
             {listOpen && <ul className="dd-list">
              {list.map((item) => (
-               <li className="dd-list-item" key={item.id} onClick={() => this.props.selectedItem(item.id)}>{item.title}</li>
+               <li className="dd-list-item" key={item.id} onClick={(() => this.props.selectedItem(item.id))}>{item.title}</li>
               ))}
             </ul>}
           </div>
         )
       }
 }
+
+export default onClickOutside(Dropdown);

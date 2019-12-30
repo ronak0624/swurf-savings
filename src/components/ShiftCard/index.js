@@ -3,7 +3,6 @@ import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import './style.css'
-import Moment from 'moment';
 
 export default function ShiftCard(props) {
     function calculateHours(start, end){

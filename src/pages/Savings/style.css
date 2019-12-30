@@ -21,3 +21,9 @@
 .mx-auto{
     margin: 0 auto;
 }
+.input-group-prepend{
+    line-height: 1rem;
+}
+input{
+    color: white;
+}

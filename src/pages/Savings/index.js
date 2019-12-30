@@ -10,29 +10,41 @@ ReactModal.setAppElement('#root')
 
 export default class Savings extends Component {
   state = {
+    title: "",
+    priority: "",
+    cost: 0,
     savings: [],
     dropdownTitle: "Priority",
     showModal: false,
-    priority: [
+    priorityDropdown: [
       {
         id: 0,
         title: '1 (I NEED this NOW)',
         selected: false,
-        key: 'priority'
+        key: 'priorityDropdown'
       },
       {
         id: 1,
         title: '2 (I WANT this really badly)',
         selected: false,
-        key: 'priority'
+        key: 'priorityDropdown'
       },
       {
         id: 2,
         title: '3 (I want this but can wait)',
         selected: false,
-        key: 'priority'
+        key: 'priorityDropdown'
       }
     ]
+  }
+
+  handleChange = (e) => {
+    const { name, value } = e.target
+    this.setState(prevState => ({
+      ...prevState,
+      [name]: value
+    }))
+    console.log(e.target)
   }
 
   componentDidMount() {
@@ -57,12 +69,19 @@ export default class Savings extends Component {
     this.setState({ showModal: false });
   }
 
+  handleSubmit = (req, res) => {
+    const {title, priority, cost} = this.state
+    req.body = {title, priority, cost}
+    console.log(req.body)
+  }
+
   resetThenSet = (id, key) => {
     let temp = JSON.parse(JSON.stringify(this.state[key]))
     temp.forEach(item => item.selected = false);
     temp[id].selected = true;
     this.setState({
-      [key]: temp
+      [key]: temp,
+      priority: temp[id].title
     })
   }
 
@@ -90,15 +109,23 @@ export default class Savings extends Component {
           <div className="modal-body">
             <form>
               <label htmlFor="title">Title</label>
-              <input className="form-control form-control-lg mb-5" id="title" type="text" placeholder="New skis"/>
-              <Dropdown title="Priority"
-                        list={this.state.priority}
+              <input name="title" onChange={this.handleChange} value={this.state.title} className="form-control form-control-lg" id="title" type="text" placeholder="New skis"/>
+              <label className="mt-3" htmlFor="priorityDropdown">Priority Level</label>
+              <Dropdown title="Priority Level"
+                        list={this.state.priorityDropdown}
                         resetThenSet={this.resetThenSet}
-                        id="priority"/>
+                        id="priorityDropdown"/>
+              <label className="mt-3" htmlFor="cost">Cost</label>
+              <div className="input-group">
+                <div class="input-group-prepend">
+                  $
+                </div>
+                <input name="cost" onChange={this.handleChange} value={this.state.cost} className="form-control form-control-lg" id="cost" type="number" placeholder="55"/>
+              </div>
             </form>
           </div>
           <div className="modal-footer">
-            <button className="btn btn-block btn-lg btn-primary" type="submit">Submit</button>
+            <button onClick={this.handleSubmit} className="btn btn-block btn-lg btn-primary" type="submit">Submit</button>
           </div>
         </div>
         </ReactModal>

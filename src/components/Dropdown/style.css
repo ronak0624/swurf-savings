@@ -21,6 +21,7 @@
     position: absolute;
     margin-top: 1rem;
     list-style: none;
+    z-index: 5;
     background-color: #929292;
     padding: .75rem;
     min-width: 12rem;

@@ -1,14 +1,32 @@
 import React, { Component } from 'react';
-import NewSavings from '../../components/NewSavings'
+import Dropdown from '../../components/Dropdown'
 import ReactModal from 'react-modal'
 import SavingsCard from '../../components/SavingsCard'
 import Container from 'react-bootstrap/Container'
 import API from '../../utils/API';
 import './style.css'
 
+ReactModal.setAppElement('#root')
+var test = [
+  {
+      id: 0,
+      title: '1 (I NEED this NOW)'
+  },
+  {
+    id: 1,
+    title: '2 (I WANT this really badly)'
+    
+  },
+  {
+    id: 2,
+    title: '3 (I want this but can wait)'
+  }
+]
+
 export default class Savings extends Component {
   state = {
     savings: [],
+    priorityDropdown: "",
     showModal: false
   }
 
@@ -34,10 +52,16 @@ export default class Savings extends Component {
     this.setState({ showModal: false });
   }
 
+  dropdownSelected = (id) => {
+    this.setState({
+      priorityDropdown: test[id].title
+    })
+  }
+
   render() {
     return (
       <Container>
-        <button className="btn btn-block btn-lg btn-primary" onClick={this.handleOpenModal}>Trigger Modal</button>
+        <button className="btn btn-block btn-lg btn-primary w-50 mx-auto mt-5" onClick={this.handleOpenModal}>Add new goal</button>
         <ReactModal 
            isOpen={this.state.showModal}
            contentLabel="onRequestClose Example"
@@ -46,29 +70,26 @@ export default class Savings extends Component {
            overlayClassName="Overlay"
            shouldCloseOnOverlayClick={true}
         >
-          {/* <div class="modal-dialog modal-dialog-centered" role="document"> */}
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2 class="fs-xs" id="modalLabel">New Savings Goal</h2>
-            <button onClick={this.handleCloseModal} class="btn btn-sm btn-circle btn-neutral align-self-start" type="button" aria-label="Close">
-              <svg class="gi gi-close fs-sm" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h2 className="fs-xs" id="modalLabel">New Savings Goal</h2>
+            <button onClick={this.handleCloseModal} className="btn btn-sm btn-circle btn-neutral align-self-start" type="button" aria-label="Close">
+              <svg className="gi gi-close fs-sm" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M13.41 12l4.3-4.29a1 1 0 1 0-1.42-1.42L12 10.59l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.29-4.3 4.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l4.29-4.3 4.29 4.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"/>
               </svg>
             </button>
           </div>
-          <div class="modal-body">
+          <div className="modal-body">
             <form>
-              <label for="recipient">Title</label>
-              <input class="form-control form-control-lg mb-5" id="recipient" type="text" placeholder="Recipient"/>
-              <label for="message">Message</label>
-              <textarea class="form-control" id="message" rows="3" placeholder="Type message..."></textarea>
+              <label htmlFor="title">Title</label>
+              <input className="form-control form-control-lg mb-5" id="title" type="text" placeholder="New skis"/>
+              <Dropdown selectedItem={this.dropdownSelected} title="Priority" list={test}/>
             </form>
           </div>
-          <div class="modal-footer">
-            <button class="btn btn-block btn-lg btn-primary" type="submit">Send message</button>
+          <div className="modal-footer">
+            <button className="btn btn-block btn-lg btn-primary" type="submit">Submit</button>
           </div>
         </div>
-      {/* </div> */}
         </ReactModal>
         {this.state.savings.length ? (
           this.state.savings.map(saving => (
@@ -79,7 +100,7 @@ export default class Savings extends Component {
               priceRemaining={saving.price_remaining} />
           ))
         ) : (
-            <h3 className="text-center">No goals yet!</h3>
+            <h3 className="text-center mt-3">No goals yet!</h3>
           )}
       </Container>
     )

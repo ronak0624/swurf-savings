@@ -1,7 +1,7 @@
 .Modal{
-    background-color: #000;
     max-width: 768px;
     margin: auto;
+    margin-top: 1rem;
     border-radius: 10px;
 }
 .Modal:focus{
@@ -14,4 +14,10 @@
     left: 0;
     top: 0;
     width: 100%;
+}
+.w-50{
+    width: 50%;
+}
+.mx-auto{
+    margin: 0 auto;
 }

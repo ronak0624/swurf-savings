@@ -18,9 +18,9 @@ class Register extends Component {
   }
 
   componentDidMount() {
-    // If logged in and user navigates to Register page, should redirect them to dashboard
+    // If logged in and user navigates to Register page, should redirect them to savings
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/savings");
     }
   }
 
@@ -58,97 +58,96 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col s8 offset-s2">
-            <Link to="/" className="btn-flat waves-effect">
-              <i className="material-icons left">keyboard_backspace</i> Back to
-              home
-            </Link>
-            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-              <h4>
-                <b>Register</b> below
-              </h4>
-              <p className="grey-text text-darken-1">
-                Already have an account? <Link to="/login">Log in</Link>
-              </p>
-            </div>
-            <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  onFocus={this.onFocus}
-                  value={this.state.name}
-                  error={errors.name}
-                  id="name"
-                  type="text"
-                  className={classnames("", {
-                    invalid: errors.name
-                  })}
-                />
-                <label className={classnames("", {active:this.state.name !== ""})} htmlFor="name">Name</label>
-                <span className="red-text">{errors.name}</span>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  onFocus={this.onFocus}
-                  value={this.state.email}
-                  error={errors.email}
-                  id="email"
-                  type="email"
-                  className={classnames("", {
-                    invalid: errors.email
-                  })}
-                />
-                <label className={classnames("", {active:this.state.email !== ""})} htmlFor="email">Email</label>
-                <span className="red-text">{errors.email}</span>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  onFocus={this.onFocus}
-                  value={this.state.password}
-                  error={errors.password}
-                  id="password"
-                  type="password"
-                  className={classnames("", {
+      <div className="d-flex align-items-center min-vh-100 py-11 mx-auto">
+        <div className="container">
+          <div className="card mx-auto">
+            <div className="card-body p-sm-9">
+              <form noValidate onSubmit={this.onSubmit}>
+                <h2 className="mb-5">Login</h2>
+                <div className="input-group mb-3">
+                  <label className="sr-only" htmlFor="email">Email</label>
+                  <div className="input-group-prepend">
+                    <svg className="gi gi-person-fill fs-sm" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4z" />
+                      <path d="M18 21a1 1 0 0 0 1-1 7 7 0 0 0-14 0 1 1 0 0 0 1 1z" />
+                    </svg>
+                  </div>
+                  <input
+                    className={classnames("", "form-control", "form-control-lg", {
+                      invalid: errors.name
+                    })}
+                    id="name"
+                    type="text"
+                    onChange={this.onChange}
+                    value={this.state.name}
+                    error={errors.name}
+                    placeholder="Name"
+                  ></input>
+                  <span className="red-text ml-4">{errors.name}</span>
+                </div>
+                <div className="input-group mb-3">
+                  <label className="sr-only" htmlFor="email">Email</label>
+                  <div className="input-group-prepend">
+                    <svg className="gi gi-person-fill fs-sm" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4z" />
+                      <path d="M18 21a1 1 0 0 0 1-1 7 7 0 0 0-14 0 1 1 0 0 0 1 1z" />
+                    </svg>
+                  </div>
+                  <input
+                    className={classnames("", "form-control", "form-control-lg", {
+                      invalid: errors.email
+                    })}
+                    id="email"
+                    type="email"
+                    onChange={this.onChange}
+                    value={this.state.email}
+                    error={errors.email}
+                    placeholder="Email"
+                  ></input>
+                  <span className="red-text ml-4">{errors.email}</span>
+                </div>
+                <div className="input-group mb-3">
+                  <label className="sr-only" htmlFor="password">Password</label>
+                  <div className="input-group-prepend">
+                    <svg className="gi gi-lock-fill fs-sm" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="12" cy="15" r="1" />
+                      <path d="M17 8h-1V6.11a4 4 0 1 0-8 0V8H7a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-8a3 3 0 0 0-3-3zm-7-1.89A2.06 2.06 0 0 1 12 4a2.06 2.06 0 0 1 2 2.11V8h-4zM12 18a3 3 0 1 1 3-3 3 3 0 0 1-3 3z" />
+                    </svg>
+                  </div>
+                  <input className={classnames("", "form-control", "form-control-lg", {
                     invalid: errors.password
                   })}
-                />
-                <label className={classnames("", {active:this.state.password !== ""})} htmlFor="password">Password</label>
-                <span className="red-text">{errors.password}</span>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  onFocus={this.onFocus}
-                  value={this.state.password2}
-                  error={errors.password2}
-                  id="password2"
-                  type="password"
-                  className={classnames("", {
+                    id="password"
+                    type="password"
+                    onChange={this.onChange}
+                    value={this.state.password}
+                    error={errors.password}
+                    placeholder="Password"></input>
+                  <span className="red-text ml-4">{errors.password}</span>
+                </div>
+                <div className="input-group mb-3">
+                  <label className="sr-only" htmlFor="password">Confirm password</label>
+                  <div className="input-group-prepend">
+                    <svg className="gi gi-lock-fill fs-sm" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="12" cy="15" r="1" />
+                      <path d="M17 8h-1V6.11a4 4 0 1 0-8 0V8H7a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-8a3 3 0 0 0-3-3zm-7-1.89A2.06 2.06 0 0 1 12 4a2.06 2.06 0 0 1 2 2.11V8h-4zM12 18a3 3 0 1 1 3-3 3 3 0 0 1-3 3z" />
+                    </svg>
+                  </div>
+                  <input className={classnames("", "form-control", "form-control-lg", {
                     invalid: errors.password2
                   })}
-                />
-                <label className={classnames("", {active:this.state.password2 !== ""})} htmlFor="password2">Confirm Password</label>
-                <span className="red-text">{errors.password2}</span>
-              </div>
-              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <button
-                  style={{
-                    width: "150px",
-                    borderRadius: "3px",
-                    letterSpacing: "1.5px",
-                    marginTop: "1rem"
-                  }}
-                  type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-                >
-                  Sign up
-                </button>
-              </div>
-            </form>
+                    id="password2"
+                    type="password"
+                    onChange={this.onChange}
+                    value={this.state.password2}
+                    error={errors.password2}
+                    placeholder="Confirm password"></input>
+                  <span className="red-text ml-4">{errors.password2}</span>
+                </div>
+                <button className="btn btn-block btn-lg btn-primary mt-3" type="submit">Sign In</button>
+                <p className="mt-5 text-center">Don't have account? <Link to="/register">Register</Link>.</p>
+              </form>
+            </div>
           </div>
         </div>
       </div>

@@ -71,8 +71,8 @@ export default class Savings extends Component {
   handleSubmit = (req, res) => {
     const {title, priority, cost} = this.state
     req.body = {title, priority, cost}
-    console.log(req.headers)
-    API.postNewSavingGoal(req)
+    console.log(req.body)
+    API.postNewSavingsGoal(req.body)
       .then(res => {
         console.log(res);
     })
@@ -120,7 +120,7 @@ export default class Savings extends Component {
                         id="priorityDropdown"/>
               <label className="mt-3" htmlFor="cost">Cost</label>
               <div className="input-group">
-                <div class="input-group-prepend">
+                <div className="input-group-prepend">
                   $
                 </div>
                 <input name="cost" onChange={this.handleChange} value={this.state.cost} className="form-control form-control-lg" id="cost" type="number" placeholder="55"/>
@@ -132,17 +132,19 @@ export default class Savings extends Component {
           </div>
         </div>
         </ReactModal>
-        {this.state.savings.length ? (
-          this.state.savings.map(saving => (
-            <SavingsCard
-              priority={saving.priority}
-              title={saving.title}
-              price={saving.cost}
-              priceRemaining={saving.price_remaining} />
-          ))
-        ) : (
-            <h3 className="text-center mt-3">No goals yet!</h3>
-          )}
+        <div className="container mt-5">
+          {this.state.savings.length ? (
+            this.state.savings.map(saving => (
+              <SavingsCard
+                priority={saving.priority}
+                title={saving.title}
+                price={saving.cost}
+                priceRemaining={saving.cost_remaining} />
+            ))
+          ) : (
+              <h3 className="text-center mt-3">No goals yet!</h3>
+            )}
+          </div>
       </Container>
     )
   }

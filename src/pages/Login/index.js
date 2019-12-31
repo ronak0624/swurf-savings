@@ -18,13 +18,13 @@ class Login extends Component {
   componentDidMount() {
     // If logged in and user navigates to Login page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/shifts");
+      this.props.history.push("/savings");
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push("/shifts");
+      this.props.history.push("/savings");
     }
 
     if (nextProps.errors) {
@@ -40,7 +40,7 @@ class Login extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-
+    console.log(this.state)
     const userData = {
       email: this.state.email,
       password: this.state.password
@@ -53,71 +53,60 @@ class Login extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="container">
-        <div style={{ marginTop: "4rem" }} className="row">
-          <div className="col s8 offset-s2">
-            <Link to="/" className="btn-flat waves-effect">
-              <i className="material-icons left">keyboard_backspace</i> Back to
-              home
-            </Link>
-            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-              <h4>
-                <b>Login</b> below
-              </h4>
-              <p className="grey-text text-darken-1">
-                Don't have an account? <Link to="/register">Register</Link>
-              </p>
-            </div>
-            <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.email}
-                  error={errors.email}
-                  id="email"
-                  type="email"
-                  className={classnames("", {
-                    invalid: errors.email || errors.emailnotfound
-                  })}
-                />
-                <label className={classnames("", {active:this.state.email !== ""})} htmlFor="email">Email</label>
-                <span className="red-text">
-                  {errors.email}
-                  {errors.emailnotfound}
-                </span>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.password}
-                  error={errors.password}
-                  id="password"
-                  type="password"
-                  className={classnames("", {
+      <div className="d-flex align-items-center min-vh-100 py-11 mx-auto">
+        <div className="container">
+          <div className="card mx-auto">
+            <div className="card-body p-sm-9">
+              <form noValidate onSubmit={this.onSubmit}>
+                <h2 className="mb-5">Login</h2>
+                <div className="input-group mb-3">
+                  <label className="sr-only" htmlFor="email">Email</label>
+                  <div className="input-group-prepend">
+                    <svg className="gi gi-person-fill fs-sm" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4z" />
+                      <path d="M18 21a1 1 0 0 0 1-1 7 7 0 0 0-14 0 1 1 0 0 0 1 1z" />
+                    </svg>
+                  </div>
+                  <input
+                    className={classnames("", "form-control", "form-control-lg", {
+                      invalid: errors.email || errors.emailnotfound
+                    })}
+                    id="email"
+                    type="email"
+                    onChange={this.onChange}
+                    value={this.state.email}
+                    error={errors.email}
+                    placeholder="Email"
+                  ></input>
+                </div>
+                <div className="input-group mb-3">
+                  <label className="sr-only" htmlFor="password">Password</label>
+                  <div className="input-group-prepend">
+                    <svg className="gi gi-lock-fill fs-sm" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="12" cy="15" r="1" />
+                      <path d="M17 8h-1V6.11a4 4 0 1 0-8 0V8H7a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-8a3 3 0 0 0-3-3zm-7-1.89A2.06 2.06 0 0 1 12 4a2.06 2.06 0 0 1 2 2.11V8h-4zM12 18a3 3 0 1 1 3-3 3 3 0 0 1-3 3z" />
+                    </svg>
+                  </div>
+                  <input className={classnames("", "form-control", "form-control-lg", {
                     invalid: errors.password || errors.passwordincorrect
                   })}
-                />
-                <label className={classnames("", {active:this.state.password !== ""})} htmlFor="password">Password</label>
-                <span className="red-text">
-                  {errors.password}
-                  {errors.passwordincorrect}
-                </span>
-              </div>
-              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <button
-                  style={{
-                    width: "150px",
-                    borderRadius: "3px",
-                    letterSpacing: "1.5px",
-                    marginTop: "1rem"
-                  }}
-                  type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-                >
-                  Login
-                </button>
-              </div>
-            </form>
+                    id="password"
+                    type="password"
+                    onChange={this.onChange}
+                    value={this.state.password}
+                    error={errors.password}
+                    placeholder="Password"></input>
+                </div>
+                  <span className="red-text">
+                    {errors.email}
+                    {errors.emailnotfound}
+                    {errors.password}
+                    {errors.passwordincorrect}
+                  </span>
+                <button className="btn btn-block btn-lg btn-primary mt-3" type="submit">Sign In</button>
+                <p className="mt-5 text-center">Don't have account? <Link to="/register">Register</Link>.</p>
+              </form>
+            </div>
           </div>
         </div>
       </div>

@@ -45,10 +45,12 @@ export default {
   },
 
   //Add a new saving goal of certain user:
-  postNewSavingGoal: function(savingData) {
-    return axios.post(URL + "/api/savings/goals", (req) => {
-      req.body = savingData
-      req.body.user_id = req.headers.user
+  postNewSavingsGoal: function(savingData) {
+    return axios({
+      method: 'post',
+      url: 'api/savings/goals',
+      headers: {user: localStorage.user},
+      data: savingData
     });
   },
 

@@ -35,8 +35,8 @@ export default {
   },
 
   //Get all saving goals of certain user:
-  findAllSavingGoals: function(username) {
-    return axios.get(URL + "/api/" + username + "/allSavingGoals")
+  findAllSavingGoals: function() {
+    return axios.get(URL + "/api/savings/goals", {headers:{user: localStorage.user}})
   },
 
   //Get all valid saving goals of certain user:
@@ -45,8 +45,11 @@ export default {
   },
 
   //Add a new saving goal of certain user:
-  postNewSavingGoal: function(username,savingData) {
-    return axios.post(URL + "/api/" + username + "/savingGoals", savingData);
+  postNewSavingGoal: function(savingData) {
+    return axios.post(URL + "/api/savings/goals", (req) => {
+      req.body = savingData
+      req.body.user_id = req.headers.user
+    });
   },
 
   //Delete all savings goals of certain user:

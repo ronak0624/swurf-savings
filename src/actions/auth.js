@@ -27,8 +27,9 @@ export const loginUser = userData => dispatch => {
 // Set token to localStorage
       const { token } = res.data;
       localStorage.setItem("jwtToken", token);
+      localStorage.setItem("user", res.data.user);
       // Set token to Auth header
-      setAuthToken(token);
+      setAuthToken(token,res.data.user);
       // Decode token to get user data
       const decoded = jwt_decode(token);
       // Set current user
@@ -58,8 +59,10 @@ export const setUserLoading = () => {
 export const logoutUser = () => dispatch => {
   // Remove token from local storage
   localStorage.removeItem("jwtToken");
+  localStorage.removeItem("user");
   // Remove auth header for future requests
   setAuthToken(false);
   // Set current user to empty object {} which will set isAuthenticated to false
   dispatch(setCurrentUser({}));
+  console.log("LOGOUT ACTION TRIGGERED")
 };

@@ -1,40 +1,79 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import './style.css';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-function Nav(props) {
-  return (
-    <nav className="navbar navbar-expand-lg mb-4">
-      <Link className="navbar-brand text-light" to="/">
-        swurf
-      </Link>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <Link to="/savings" className="nav-link text-light">
-              Savings
-                </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/shifts" className="nav-link text-light">
-              Shifts
-                </Link>
-          </li>
-        </ul>
+const SmallMenu = styled.div`
+  display: none;
+  text-align: center;
+  @media (max-width: ${props => props.size}) {
+    display: block;
+  }
+`;
+
+const LargeMenu = styled.div`
+  display: block;
+  text-align: center;
+  @media (max-width: ${props => props.size}) {
+    display: none;
+  }
+`;
+
+const MenuIcon = ({ onClick, icon }) => (
+  <div role="button" onClick={onClick}>
+    {icon}
+  </div>
+);
+
+class Nav extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showMenu: false
+    };
+  }
+
+  handleClick = () => {
+    this.setState({ showMenu: !this.state.showMenu });
+  };
+
+  render() {
+    const {
+      menu,
+      largeMenuClassName,
+      smallMenuClassName,
+      changeMenuOn,
+      menuOpenButton,
+      menuCloseButton
+    } = this.props;
+    return (
+      <div>
+        <LargeMenu className={largeMenuClassName} size={changeMenuOn}>
+          {menu}
+        </LargeMenu>
+        <SmallMenu className={smallMenuClassName} size={changeMenuOn}>
+          {!this.state.showMenu ? (
+            <MenuIcon onClick={this.handleClick} icon={menuOpenButton} />
+          ) : (
+            <MenuIcon onClick={this.handleClick} icon={menuCloseButton} />
+          )}
+          {this.state.showMenu ? <div>{menu}</div> : null}
+        </SmallMenu>
       </div>
-    </nav>
-  );
+    );
+  }
 }
+Nav.propTypes = {
+  menu: PropTypes.node.isRequired,
+  largeMenuClassName: PropTypes.string,
+  smallMenuClassName: PropTypes.string,
+  changeMenuOn: PropTypes.string.isRequired,
+  menuOpenButton: PropTypes.node.isRequired,
+  menuCloseButton: PropTypes.node.isRequired
+};
+
+Nav.defaultProps = {
+  largeMenuClassName: '',
+  smallMenuClassName: ''
+};
 
 export default Nav;

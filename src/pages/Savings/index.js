@@ -44,7 +44,6 @@ export default class Savings extends Component {
       ...prevState,
       [name]: value
     }))
-    console.log(e.target)
   }
 
   componentDidMount() {
@@ -52,7 +51,7 @@ export default class Savings extends Component {
   }
 
   loadSavings = () => {
-    API.findAllSavingGoals(sessionStorage.user)
+    API.findAllSavingGoals()
       .then(res => {
           this.setState({ savings: res.data })
           console.log(this.state.savings);
@@ -72,7 +71,11 @@ export default class Savings extends Component {
   handleSubmit = (req, res) => {
     const {title, priority, cost} = this.state
     req.body = {title, priority, cost}
-    console.log(req.body)
+    console.log(req.headers)
+    API.postNewSavingGoal(req)
+      .then(res => {
+        console.log(res);
+    })
   }
 
   resetThenSet = (id, key) => {
@@ -134,7 +137,7 @@ export default class Savings extends Component {
             <SavingsCard
               priority={saving.priority}
               title={saving.title}
-              price={saving.price}
+              price={saving.cost}
               priceRemaining={saving.price_remaining} />
           ))
         ) : (

@@ -74,7 +74,10 @@ export default class Savings extends Component {
     console.log(req.body)
     API.postNewSavingsGoal(req.body)
       .then(res => {
-        console.log(res);
+        if(res.status === 200){
+          this.handleCloseModal()
+          this.loadSavings()
+        }
     })
   }
 

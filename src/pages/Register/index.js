@@ -145,7 +145,7 @@ class Register extends Component {
                   <span className="red-text ml-4">{errors.password2}</span>
                 </div>
                 <button className="btn btn-block btn-lg btn-primary mt-3" type="submit">Sign In</button>
-                <p className="mt-5 text-center">Don't have account? <Link to="/register">Register</Link>.</p>
+                <p className="mt-5 text-center">Already have an account? <Link to="/login">Log In</Link>.</p>
               </form>
             </div>
           </div>

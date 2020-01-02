@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Dropdown from '../../components/Dropdown'
 import ReactModal from 'react-modal'
-import SavingsCard from '../../components/SavingsCard'
+// import SavingsCard from '../../components/SavingsCard'
+import SavingsCard from '../../components/SavingsCardGray'
 import Container from 'react-bootstrap/Container'
 import API from '../../utils/API';
 import './style.css'
@@ -141,8 +142,9 @@ export default class Savings extends Component {
               <SavingsCard
                 priority={saving.priority}
                 title={saving.title}
-                price={saving.cost}
-                priceRemaining={saving.cost_remaining} />
+                cost={saving.cost}
+                cost_remaining={saving.cost_remaining}
+                active={saving.active} />
             ))
           ) : (
               <h3 className="text-center mt-3">No goals yet!</h3>

@@ -54,6 +54,13 @@ export default {
     });
   },
 
+  toggleShift: function(id){
+    return axios({
+      method: 'get',
+      url: 'api/savings/goals/active/' + id
+    })
+  },
+
   //Delete all savings goals of certain user:
   removeAllSavingGoals: function(username){
     return axios.delete(URL + "/api/" + username + "/savingGoals/");

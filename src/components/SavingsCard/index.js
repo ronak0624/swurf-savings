@@ -1,6 +1,5 @@
 import React, { Component, state } from 'react'
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'

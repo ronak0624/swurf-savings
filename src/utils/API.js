@@ -57,8 +57,9 @@ export default {
   toggleShift: function(id){
     return axios({
       method: 'get',
-      url: 'api/savings/goals/active/' + id
-    })
+      url: 'api/savings/goals/active/' + id,
+      headers: {user: localStorage.user}
+    }).then(res=>console.log(res))
   },
 
   //Delete all savings goals of certain user:

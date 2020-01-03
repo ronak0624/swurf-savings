@@ -6,47 +6,54 @@ import Col from 'react-bootstrap/Col'
 
 import './style.css'
 
-function SavingsCard(props) {
+class SavingsCard extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      props
+    }
+  }
 
-  const progress = Math.round(props.priceRemaining / props.price * 100);
+  progress = Math.round(this.props.priceRemaining / this.props.price * 100);
 
-  const progressInstance = <ProgressBar now={progress} label={`${progress}%`} />;
-
-  return (
-    <Card className="mb-5 mx-auto">
-      <Card.Body>
-        <div className="edit-icons"></div>
-        <Card.Text className="text-center text-muted display-5 savings-title">
-          <b>Priority </b>
-          {props.priority}
-        </Card.Text>
-        <Card.Title className="mb-4">{props.title}</Card.Title>
-        <Card.Text>
-          {progressInstance}
-        </Card.Text>
-        <Card.Text className="text-center">
-          <Row className="justify-content-md-center">
-            <Col xs lg="2">
-              <Row>
-                <Col className="savings-title">Saved</Col>
-              </Row>
-              <Row>
-                <Col className="price-title">${props.priceRemaining}</Col>
-              </Row>
-            </Col>
-            <Col xs lg="2">
-              <Row>
-                <Col className="savings-title">Left</Col>
-              </Row>
-              <Row>
-                <Col className="price-title">${props.price}</Col>
-              </Row>
-            </Col>
-          </Row>
-        </Card.Text>
-      </Card.Body>
-    </Card>
-  );
+  progressInstance = <ProgressBar now={this.progress} label={`${this.progress}%`} />;
+  render() {
+    return (
+      <Card className="mb-5 mx-auto">
+        <Card.Body>
+          <div className="edit-icons"></div>
+          <Card.Text className="text-center text-muted display-5 savings-title">
+            <b>Priority </b>
+            {this.this.props.priority}
+          </Card.Text>
+          <Card.Title className="mb-4">{this.props.title}</Card.Title>
+          <Card.Text>
+            {this.progressInstance}
+          </Card.Text>
+          <Card.Text className="text-center">
+            <Row className="justify-content-md-center">
+              <Col xs lg="2">
+                <Row>
+                  <Col className="savings-title">Saved</Col>
+                </Row>
+                <Row>
+                  <Col className="price-title">${this.props.priceRemaining}</Col>
+                </Row>
+              </Col>
+              <Col xs lg="2">
+                <Row>
+                  <Col className="savings-title">Left</Col>
+                </Row>
+                <Row>
+                  <Col className="price-title">${this.props.price}</Col>
+                </Row>
+              </Col>
+            </Row>
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    );
+  }
 }
 
 export default SavingsCard;

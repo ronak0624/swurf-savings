@@ -144,6 +144,7 @@ export default class Savings extends Component {
                 title={saving.title}
                 cost={saving.cost}
                 cost_remaining={saving.cost_remaining}
+                id={saving._id}
                 active={saving.active} />
             ))
           ) : (

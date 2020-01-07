@@ -6,7 +6,8 @@ class Dropdown extends Component{
       super(props)
       this.state = {
         listOpen: false,
-        headerTitle: this.props.title
+        headerTitle: this.props.title,
+        classes: "dd-wrapper " + this.props.className
       }
       this.close = this.close.bind(this)
     }
@@ -50,7 +51,7 @@ class Dropdown extends Component{
       const{list} = this.props
       const{listOpen, headerTitle} = this.state
       return(
-        <div className="dd-wrapper">
+        <div className={this.state.classes}>
           <div className="dd-header" onClick={() => this.toggleList()}>
             <div className="dd-header-title">{headerTitle}</div>
           </div>

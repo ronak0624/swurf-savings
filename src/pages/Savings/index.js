@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Dropdown from '../../components/Dropdown'
 import ReactModal from 'react-modal'
-// import SavingsCard from '../../components/SavingsCard'
-import SavingsCard from '../../components/SavingsCardGray'
+import SavingsCard from '../../components/SavingsCard'
 import Container from 'react-bootstrap/Container'
 import API from '../../utils/API';
 import './style.css'

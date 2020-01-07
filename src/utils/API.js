@@ -15,8 +15,13 @@ export default {
   },
   
   //Submit a new shift of certain user:
-  postNewShift: function(username,shiftsData){
-    return axios.post(URL + "/api/" + username + "/shifts",shiftsData);
+  postNewShift: function(shiftData) {
+    return axios({
+      method: 'post',
+      url: 'api/shifts',
+      headers: {user: localStorage.user},
+      data: shiftData
+    });
   },
 
   //Remove all shifts of certain user

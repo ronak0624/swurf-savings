@@ -2,7 +2,7 @@
     max-width: 12rem;
 }
 .dd-header{
-    background-color: hsl(211, 100%, 50%);
+    background-color: hsl(129, 40%, 35%);
     transition: 0.2s;
     color: white;
     max-width: 12rem;
@@ -11,7 +11,7 @@
     border-radius: 0.5rem;
 }
 .dd-header:hover{
-    background-color: hsl(211, 100%, 60%);
+    background-color: hsl(129, 40%, 55%);
     cursor: pointer;
 }
 .dd-header-title{

@@ -37,7 +37,7 @@ export default class Shifts extends Component {
         key: 'time_of_day_end'
       },
     ],
-    shift_start: [
+    shift_start_list: [
       {
         id: 0,
         title: '1:00',
@@ -99,7 +99,7 @@ export default class Shifts extends Component {
         key: 'shift_start'
       },
     ],
-    shift_end: [
+    shift_end_list: [
       {
         id: 1,
         title: '1:00',
@@ -246,12 +246,12 @@ export default class Shifts extends Component {
                   <div className="input-group-prepend">
                     $
                       </div>
-                  <input name="cost" onChange={this.handleChange} value={this.state.earnings} className="form-control form-control-lg" id="cost" type="number" placeholder="55" />
+                  <input name="earnings" onChange={this.handleChange} value={this.state.earnings} className="form-control form-control-lg" id="earnings" type="number" placeholder="55" />
                 </div>
                 <label className="mt-3" htmlFor="shift_start">Shift starting time</label>
                 <div className="row pl-3">
                   <Dropdown title="3:00"
-                    list={this.state.shift_start}
+                    list={this.state.shift_start_list}
                     resetThenSet={this.resetThenSet}
                     id="shift_start" />
                   <Dropdown className="ml-3"
@@ -263,7 +263,7 @@ export default class Shifts extends Component {
                 <label className="mt-3" htmlFor="shift_end">Shift ending time</label>
                 <div className="row pl-3">
                   <Dropdown title="6:00"
-                    list={this.state.shift_end}
+                    list={this.state.shift_end_list}
                     resetThenSet={this.resetThenSet}
                     id="shift_end" />
                   <Dropdown className="ml-3"

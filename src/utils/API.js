@@ -6,7 +6,7 @@ export default {
 
   //Get all shifts of certain user:
   findAllShifts: function(username) {
-    return axios.get(URL + "/api/" + username + "/allShifts");
+    return axios.get(URL + "/api/shifts", {headers:{user: localStorage.user}})
   },
 
   //Get all valid shifts of certain user:
@@ -59,7 +59,7 @@ export default {
     });
   },
 
-  toggleShift: function(id){
+  toggleSavings: function(id){
     return axios({
       method: 'get',
       url: 'api/savings/goals/active/' + id,

@@ -21,7 +21,7 @@ class SavingsCard extends Component {
   }
 
   toggleActive = (id) => {
-    API.toggleShift(id).then(() =>{
+    API.toggleSavings(id).then(() =>{
       console.log(this.state.id)
     })
     window.location.reload();

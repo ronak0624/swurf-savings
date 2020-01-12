@@ -5,160 +5,310 @@ import ShiftCard from '../../components/ShiftCard';
 import Container from 'react-bootstrap/Container';
 import API from "../../utils/API";
 
+var shift_start_suffix = [
+  {
+    id: 0,
+    title: 'AM',
+    key: 'shift_start_suffix_list'
+  },
+  {
+    id: 1,
+    title: 'PM',
+    key: 'shift_start_suffix_list'
+  },
+]
+var shift_end_suffix = [
+  {
+    id: 0,
+    title: 'AM',
+    key: 'shift_end_suffix_list'
+  },
+  {
+    id: 1,
+    title: 'PM',
+    key: 'shift_end_suffix_list'
+  },
+]
+var shift_start_list = [
+  {
+    id: 0,
+    title: '1:00',
+    key: 'shift_start_list'
+  },
+  {
+    id: 1,
+    title: '2:00',
+    key: 'shift_start_list'
+  },
+  {
+    id: 2,
+    title: '3:00',
+    key: 'shift_start_list'
+  },
+  {
+    id: 3,
+    title: '4:00',
+    key: 'shift_start_list'
+  },
+  {
+    id: 4,
+    title: '5:00',
+    key: 'shift_start_list'
+  },
+  {
+    id: 5,
+    title: '6:00',
+    key: 'shift_start_list'
+  },
+  {
+    id: 6,
+    title: '7:00',
+    key: 'shift_start_list'
+  },
+  {
+    id: 7,
+    title: '8:00',
+    key: 'shift_start_list'
+  },
+  {
+    id: 8,
+    title: '9:00',
+    key: 'shift_start_list'
+  },
+  {
+    id: 9,
+    title: '10:00',
+    key: 'shift_start_list'
+  },
+  {
+    id: 10,
+    title: '11:00',
+    key: 'shift_start_list'
+  },
+  {
+    id: 11,
+    title: '12:00',
+    key: 'shift_start_list'
+  },
+]
+var shift_end_list =[
+  {
+    id: 1,
+    title: '1:00',
+    key: 'shift_end_list'
+  },
+  {
+    id: 1,
+    title: '2:00',
+    key: 'shift_end_list'
+  },
+  {
+    id: 2,
+    title: '3:00',
+    key: 'shift_end_list'
+  },
+  {
+    id: 3,
+    title: '4:00',
+    key: 'shift_end_list'
+  },
+  {
+    id: 4,
+    title: '5:00',
+    key: 'shift_end_list'
+  },
+  {
+    id: 5,
+    title: '6:00',
+    key: 'shift_end_list'
+  },
+  {
+    id: 6,
+    title: '7:00',
+    key: 'shift_end_list'
+  },
+  {
+    id: 7,
+    title: '8:00',
+    key: 'shift_end_list'
+  },
+  {
+    id: 8,
+    title: '9:00',
+    key: 'shift_end_list'
+  },
+  {
+    id: 9,
+    title: '10:00',
+    key: 'shift_end_list'
+  },
+  {
+    id: 10,
+    title: '11:00',
+    key: 'shift_end_list'
+  },
+  {
+    id: 11,
+    title: '12:00',
+    key: 'shift_end_list'
+  },
+]
+
 export default class Shifts extends Component {
   state = {
     earnings: 0,
     shift_start: "",
     shift_end: "",
+    shift_start_suffix: "",
+    shift_end_suffix: "",
     shifts: [],
-    dropdownTitle: "Shift start",
     showModal: false,
-    time_of_day_start: [
+    shift_start_suffix_list: [
       {
         id: 0,
         title: 'AM',
-        key: 'time_of_day_start'
+        key: 'shift_start_suffix_list'
       },
       {
         id: 1,
         title: 'PM',
-        key: 'time_of_day_start'
+        key: 'shift_start_suffix_list'
       },
     ],
-    time_of_day_end: [
+    shift_end_suffix_list: [
       {
         id: 0,
         title: 'AM',
-        key: 'time_of_day_end'
+        key: 'shift_end_suffix_list'
       },
       {
         id: 1,
         title: 'PM',
-        key: 'time_of_day_end'
+        key: 'shift_end_suffix_list'
       },
     ],
     shift_start_list: [
       {
         id: 0,
         title: '1:00',
-        key: 'shift_start'
+        key: 'shift_start_list'
       },
       {
         id: 1,
         title: '2:00',
-        key: 'shift_start'
+        key: 'shift_start_list'
       },
       {
         id: 2,
         title: '3:00',
-        key: 'shift_start'
+        key: 'shift_start_list'
       },
       {
         id: 3,
         title: '4:00',
-        key: 'shift_start'
+        key: 'shift_start_list'
       },
       {
         id: 4,
         title: '5:00',
-        key: 'shift_start'
+        key: 'shift_start_list'
       },
       {
         id: 5,
         title: '6:00',
-        key: 'shift_start'
+        key: 'shift_start_list'
       },
       {
         id: 6,
         title: '7:00',
-        key: 'shift_start'
+        key: 'shift_start_list'
       },
       {
         id: 7,
         title: '8:00',
-        key: 'shift_start'
+        key: 'shift_start_list'
       },
       {
         id: 8,
         title: '9:00',
-        key: 'shift_start'
+        key: 'shift_start_list'
       },
       {
         id: 9,
         title: '10:00',
-        key: 'shift_start'
+        key: 'shift_start_list'
       },
       {
         id: 10,
         title: '11:00',
-        key: 'shift_start'
+        key: 'shift_start_list'
       },
       {
         id: 11,
         title: '12:00',
-        key: 'shift_start'
+        key: 'shift_start_list'
       },
     ],
     shift_end_list: [
       {
         id: 1,
         title: '1:00',
-        key: 'shift_end'
+        key: 'shift_end_list'
       },
       {
         id: 1,
         title: '2:00',
-        key: 'shift_end'
+        key: 'shift_end_list'
       },
       {
         id: 2,
         title: '3:00',
-        key: 'shift_end'
+        key: 'shift_end_list'
       },
       {
         id: 3,
         title: '4:00',
-        key: 'shift_end'
+        key: 'shift_end_list'
       },
       {
         id: 4,
         title: '5:00',
-        key: 'shift_end'
+        key: 'shift_end_list'
       },
       {
         id: 5,
         title: '6:00',
-        key: 'shift_end'
+        key: 'shift_end_list'
       },
       {
         id: 6,
         title: '7:00',
-        key: 'shift_end'
+        key: 'shift_end_list'
       },
       {
         id: 7,
         title: '8:00',
-        key: 'shift_end'
+        key: 'shift_end_list'
       },
       {
         id: 8,
         title: '9:00',
-        key: 'shift_end'
+        key: 'shift_end_list'
       },
       {
         id: 9,
         title: '10:00',
-        key: 'shift_end'
+        key: 'shift_end_list'
       },
       {
         id: 10,
         title: '11:00',
-        key: 'shift_end'
+        key: 'shift_end_list'
       },
       {
         id: 11,
         title: '12:00',
-        key: 'shift_end'
+        key: 'shift_end_list'
       },
     ]
   }
@@ -178,8 +328,8 @@ export default class Shifts extends Component {
   loadShifts = () => {
     API.findAllShifts()
       .then(res => {
-        this.setState({ savings: res.data })
-        console.log(this.state.savings);
+        this.setState({ shifts: res.data })
+        console.log(this.state.shifts);
       }
       )
       .catch(err => console.log(err));
@@ -194,27 +344,28 @@ export default class Shifts extends Component {
   }
 
   handleSubmit = (req, res) => {
-    const {shift_start, shift_end, earnings} = this.state
+    let {shift_start, shift_end, earnings} = this.state
+    shift_start+=this.state.shift_start_suffix
+    shift_end+= this.state.shift_end_suffix
+    earnings = Number.parseInt(earnings)
     req.body = {shift_start, shift_end, earnings}
-    // const { title, priority, cost } = this.state
-    // req.body = { title, priority, cost }
     console.log(req.body)
-    // API.postNewSavingsGoal(req.body)
-    //   .then(res => {
-    //     if (res.status === 200) {
-    //       this.handleCloseModal()
-    //       this.loadSavings()
-    //     }
-    //   })
+    API.postNewShift(req.body)
+      .then(res => {
+        if (res.status === 200) {
+          this.handleCloseModal()
+          this.loadShifts()
+        }
+      })
   }
 
   resetThenSet = (id, key) => {
-    let temp = JSON.parse(JSON.stringify(this.state[key]))
-    temp.forEach(item => item.selected = false);
-    temp[id].selected = true;
+    // Because the dropdown does not function without a key name that is identical to the name of the array (list for dropdown) it comes from,
+    // I have to remove the "_list" from the end of the object key. 
+    let selectedTitle = this.state[key][id].title
+    let stateKey = key.substring(0, key.length - 5)
     this.setState({
-      [key]: temp,
-      priority: temp[id].title
+      [stateKey]: selectedTitle,
     })
   }
 
@@ -256,9 +407,9 @@ export default class Shifts extends Component {
                     id="shift_start" />
                   <Dropdown className="ml-3"
                     title="PM"
-                    list={this.state.time_of_day_start}
+                    list={this.state.shift_start_suffix_list}
                     resetThenSet={this.resetThenSet}
-                    id="time_of_day_start" />
+                    id="shift_start_suffix" />
                 </div>
                 <label className="mt-3" htmlFor="shift_end">Shift ending time</label>
                 <div className="row pl-3">
@@ -268,9 +419,9 @@ export default class Shifts extends Component {
                     id="shift_end" />
                   <Dropdown className="ml-3"
                     title="PM"
-                    list={this.state.time_of_day_end}
+                    list={this.state.shift_end_suffix_list}
                     resetThenSet={this.resetThenSet}
-                    id="time_of_day_end" />
+                    id="shift_end_suffix" />
                 </div>
               </form>
             </div>
@@ -283,8 +434,8 @@ export default class Shifts extends Component {
           {this.state.shifts.length ? (
             this.state.shifts.map(shift => (
               <ShiftCard
-                shiftEnd={shift.shiftEnd}
-                shiftStart={shift.shiftStart}
+                shiftEnd={shift.shift_end}
+                shiftStart={shift.shift_start}
                 earnings={shift.earnings}
               />
             ))

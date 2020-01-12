@@ -28,6 +28,8 @@ export const loginUser = userData => dispatch => {
       const { token } = res.data;
       localStorage.setItem("jwtToken", token);
       localStorage.setItem("user", res.data.user);
+      const initials = res.data.userName.split(" ").map((n)=>n[0]).join("")
+      localStorage.setItem("userInitials", initials);
       // Set token to Auth header
       setAuthToken(token,res.data.user);
       // Decode token to get user data

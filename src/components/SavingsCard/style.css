@@ -8,7 +8,7 @@
   border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
 }
 .card-savings .progress-bar{
-    background-color: blue;
+    background-color: rgb(54,110,67);
 
 }
 .task-button:hover,

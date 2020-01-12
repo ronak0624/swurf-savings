@@ -54,9 +54,7 @@ function NavRendered() {
           <div className="container">
             <Link className="link-body" rel="home" to="/">
               <i className="gi-animation-hover">
-                <svg className="gi gi-github-fill gi-animation gi-animation-hover-pulse fs-xxl" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 1A10.89 10.89 0 0 0 1 11.77 10.79 10.79 0 0 0 8.52 22c.55.1.75-.23.75-.52v-1.83c-3.06.65-3.71-1.44-3.71-1.44a2.86 2.86 0 0 0-1.22-1.58c-1-.66.08-.65.08-.65a2.31 2.31 0 0 1 1.68 1.11 2.37 2.37 0 0 0 3.2.89 2.33 2.33 0 0 1 .7-1.44c-2.44-.27-5-1.19-5-5.32a4.15 4.15 0 0 1 1.11-2.91 3.78 3.78 0 0 1 .11-2.84s.93-.29 3 1.1a10.68 10.68 0 0 1 5.5 0c2.1-1.39 3-1.1 3-1.1a3.78 3.78 0 0 1 .11 2.84A4.15 4.15 0 0 1 19 11.2c0 4.14-2.58 5.05-5 5.32a2.5 2.5 0 0 1 .75 2v2.95c0 .35.2.63.75.52A10.8 10.8 0 0 0 23 11.77 10.89 10.89 0 0 0 12 1"></path>
-                </svg>
+              <svg className="swurf-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248.798 343"><defs></defs><g transform="translate(-140.692 -88.5)"><path class="a" d="M24.144,370.753l91.218-14.448c53.118-8.413,87.588-28.155,87.588-64.605,0-44.1-27.807-58.938-70.107-67.938-36-7.65-52.743-9.912-52.743-22.962s26.254-18.224,46.009-21.353c32.6-5.109,103.429-16.382,103.429-16.382l-6.57-41.483L119.261,138.008C62.192,147.047,27,166.6,27,199.9c0,40.5,36.9,58.5,79.2,67.5,32.4,6.75,42.3,9.45,42.3,23.4,0,13.05-17.11,17.406-40.228,21.068L17.1,326.307Z" transform="translate(181.797 3.035) rotate(9)"/><path class="b" d="M0,0V75" transform="translate(279.5 88.5)"/><line class="b" y2="75" transform="translate(238.5 356.5)"/></g></svg>
               </i>
             </Link>
             <ul className="navbar-nav">
@@ -71,7 +69,7 @@ function NavRendered() {
               </li>
             </ul>
             <div>
-              <span className="avatar avatar-md lead bg-primary rounded-circle">RP</span>
+              <span className="avatar avatar-md lead bg-primary rounded-circle">{localStorage.userInitials}</span>
             </div>
           </div>
         </nav>

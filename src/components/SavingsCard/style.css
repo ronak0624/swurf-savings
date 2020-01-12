@@ -1,33 +1,17 @@
-.card{
-    max-width: 40rem;
-    border: none;
-    border-radius: 1rem;
-    box-shadow: 0 3px 40px -15px rgba(0,0,0,0.2);
+.card-savings .progress,
+.card-task .progress {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: .25rem;
+  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
 }
-.card-title{
-    text-align: center;
+.card-savings .progress-bar{
+    background-color: rgb(54,110,67);
+
 }
-.progress{
-    height: 2rem;
-    background-color: #87CC92;
-    border-radius: 0.8rem;
-    margin: 0px 2rem;
-    box-shadow: 0 3px 40px -15px rgba(0,0,0,0.2);
-}
-.progress-bar{
-    background-color: #366E42;
-}
-.savings-title{
-    font-weight: lighter;
-    font-size: 0.8rem;
-    color: #555
-}
-.price-title{
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-.edit-icons{
-    position: absolute;
-    top: 1.2rem;
-    right: 1.2rem;
+.task-button:hover,
+.taks-button:focus{
+    cursor: pointer;
 }

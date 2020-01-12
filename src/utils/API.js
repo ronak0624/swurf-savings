@@ -1,12 +1,12 @@
 const axios = require("axios");
 
-const URL = "mongodb+srv://ronak:Masaka60@swurf-savings-5guz5.mongodb.net/test?retryWrites=true&w=majority";
+const URL = "http://swurf-savings-backend.herokuapp.com";
 
 export default {
 
   //Get all shifts of certain user:
   findAllShifts: function(username) {
-    return axios.get(URL + "/api/" + username + "/allShifts");
+    return axios.get(URL + "/api/shifts", {headers:{user: localStorage.user}})
   },
 
   //Get all valid shifts of certain user:
@@ -15,8 +15,13 @@ export default {
   },
   
   //Submit a new shift of certain user:
-  postNewShift: function(username,shiftsData){
-    return axios.post(URL + "/api/" + username + "/shifts",shiftsData);
+  postNewShift: function(shiftData) {
+    return axios({
+      method: 'post',
+      url: 'api/shifts',
+      headers: {user: localStorage.user},
+      data: shiftData
+    });
   },
 
   //Remove all shifts of certain user
@@ -35,8 +40,8 @@ export default {
   },
 
   //Get all saving goals of certain user:
-  findAllSavingGoals: function(username) {
-    return axios.get(URL + "/api/" + username + "/allSavingGoals")
+  findAllSavingGoals: function() {
+    return axios.get(URL + "/api/savings/goals", {headers:{user: localStorage.user}})
   },
 
   //Get all valid saving goals of certain user:
@@ -45,8 +50,21 @@ export default {
   },
 
   //Add a new saving goal of certain user:
-  postNewSavingGoal: function(username,savingData) {
-    return axios.post(URL + "/api/" + username + "/savingGoals", savingData);
+  postNewSavingsGoal: function(savingData) {
+    return axios({
+      method: 'post',
+      url: 'api/savings/goals',
+      headers: {user: localStorage.user},
+      data: savingData
+    });
+  },
+
+  toggleSavings: function(id){
+    return axios({
+      method: 'get',
+      url: 'api/savings/goals/active/' + id,
+      headers: {user: localStorage.user}
+    }).then(res=>console.log(res))
   },
 
   //Delete all savings goals of certain user:

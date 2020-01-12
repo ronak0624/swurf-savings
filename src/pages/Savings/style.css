@@ -1,0 +1,71 @@
+.Modal {
+    max-width: 768px;
+    margin: auto;
+    margin-top: 1rem;
+    border-radius: 10px;
+}
+
+.Modal:focus {
+    outline: none;
+}
+
+.Overlay {
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.mx-auto {
+    margin: 0 auto;
+}
+
+.input-group-prepend {
+    line-height: 1rem;
+}
+
+input {
+    color: white;
+}
+
+.Menu ul {
+    padding: 0;
+    padding-top: 3rem;
+}
+
+.Menu li {
+    display: inline;
+    font-size: 13px;
+    list-style-type: none;
+    margin-left: 30px;
+}
+
+.Menu a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: MediumPurple;
+}
+
+.Menu a:hover {
+    color: white;
+}
+
+
+@media (max-width: 500px) {
+    .Menu {
+        padding: 10px 0;
+    }
+
+    .Menu li {
+        padding: 10px 0;
+        display: block;
+        margin-left: 0;
+    }
+}

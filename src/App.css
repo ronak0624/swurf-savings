@@ -56,3 +56,26 @@ button:focus {
 select{
   border-radius: 0.7rem !important;
 }
+input[type="number"] {
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+}
+.Nav{
+  width: 100vw;
+}
+.swurf-logo{
+  height: 5rem;
+}
+.swurf-logo .a{
+  fill: rgb(54,110,67);
+}
+.swurf-logo .b{
+  fill:none;
+  stroke: rgb(54,110,67);
+  stroke-width:35px;
+}

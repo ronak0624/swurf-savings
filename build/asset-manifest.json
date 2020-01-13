@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/ronak0624/swurf-savings/static/css/main.859b3a4b.chunk.css",
+    "main.js": "/ronak0624/swurf-savings/static/js/main.533c6b68.chunk.js",
+    "main.js.map": "/ronak0624/swurf-savings/static/js/main.533c6b68.chunk.js.map",
+    "runtime-main.js": "/ronak0624/swurf-savings/static/js/runtime-main.4435d189.js",
+    "runtime-main.js.map": "/ronak0624/swurf-savings/static/js/runtime-main.4435d189.js.map",
+    "static/js/2.7aca0a63.chunk.js": "/ronak0624/swurf-savings/static/js/2.7aca0a63.chunk.js",
+    "static/js/2.7aca0a63.chunk.js.map": "/ronak0624/swurf-savings/static/js/2.7aca0a63.chunk.js.map",
+    "index.html": "/ronak0624/swurf-savings/index.html",
+    "precache-manifest.021afb474d120f3728f34a7b410709e2.js": "/ronak0624/swurf-savings/precache-manifest.021afb474d120f3728f34a7b410709e2.js",
+    "service-worker.js": "/ronak0624/swurf-savings/service-worker.js",
+    "static/css/main.859b3a4b.chunk.css.map": "/ronak0624/swurf-savings/static/css/main.859b3a4b.chunk.css.map",
+    "static/js/2.7aca0a63.chunk.js.LICENSE": "/ronak0624/swurf-savings/static/js/2.7aca0a63.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4435d189.js",
+    "static/js/2.7aca0a63.chunk.js",
+    "static/css/main.859b3a4b.chunk.css",
+    "static/js/main.533c6b68.chunk.js"
+  ]
+}

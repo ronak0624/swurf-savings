@@ -1,6 +1,7 @@
-const axios = require("axios");
+import {apiURL} from "./apiURL"
+import axios from "axios";
 
-const URL = "http://swurf-savings-backend.herokuapp.com";
+const URL = apiURL;
 
 export default {
 

@@ -8,8 +8,8 @@ import API from "../../utils/API";
 export default class Shifts extends Component {
   state = {
     earnings: 0,
-    shift_start: "",
-    shift_end: "",
+    shift_start: "3:00PM",
+    shift_end: "6:00PM",
     shift_start_suffix: "",
     shift_end_suffix: "",
     shifts: [],

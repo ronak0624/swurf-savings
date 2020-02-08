@@ -58,7 +58,7 @@ function NavRendered() {
               </i>
             </Link>
             <ul className="navbar-nav">
-              <li className="nav-item active">
+              <li className="nav-item">
                 <div className="nav-link" onClick={onLogoutClick}>Logout</div>
               </li>
               <li className="nav-item">

@@ -19,7 +19,7 @@ export default {
   postNewShift: function(shiftData) {
     return axios({
       method: 'post',
-      url: 'api/shifts',
+      url: URL + '/api/shifts',
       headers: {user: localStorage.user},
       data: shiftData
     });
@@ -54,7 +54,7 @@ export default {
   postNewSavingsGoal: function(savingData) {
     return axios({
       method: 'post',
-      url: 'api/savings/goals',
+      url: URL + '/api/savings/goals',
       headers: {user: localStorage.user},
       data: savingData
     });
@@ -63,7 +63,7 @@ export default {
   toggleSavings: function(id){
     return axios({
       method: 'get',
-      url: 'api/savings/goals/active/' + id,
+      url: URL + '/api/savings/goals/active/' + id,
       headers: {user: localStorage.user}
     }).then(res=>console.log(res))
   },

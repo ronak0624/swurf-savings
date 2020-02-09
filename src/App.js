@@ -59,7 +59,7 @@ function NavRendered() {
             </Link>
             <ul className="navbar-nav">
               <li className="nav-item">
-                <div className="nav-link" onClick={onLogoutClick}>Logout</div>
+                <div className="nav-link logout" onClick={onLogoutClick}>Logout</div>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/savings">Savings</Link>

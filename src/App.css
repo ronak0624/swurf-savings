@@ -79,3 +79,9 @@ input[type=number]::-webkit-outer-spin-button {
   stroke: rgb(54,110,67);
   stroke-width:35px;
 }
+.logout:hover {
+  cursor: pointer;
+}
+.logout.nav-link:hover {
+  color: rgb(54,110,67);
+}
